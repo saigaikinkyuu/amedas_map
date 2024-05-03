@@ -44,6 +44,8 @@ $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/"+new Date().getFullYear(
         var latitude = dmsToDd(data[key].lat[0], (data[key].lat[1]+"0").slice(0,2), (data[key].lat[1]+"0").slice(2), "N");
         var longitude = dmsToDd(data[key].lon[0], (data[key].lon[1]+"0").slice(0,2), (data[key].lon[1]+"0").slice(2), "E");
 
+        console.log(datas[key].temp)
+
         if(datas[key].temp[0] <= 0){
           var color = "blue"
           var rgba = "rgba(0,0,255,0.3)"
