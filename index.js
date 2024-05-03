@@ -68,7 +68,6 @@ $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/"+new Date().getFullYear(
           fillOpacity: 1 // 塗りつぶしの透明度を設定
         }).addTo(map);
         // 地図にマーカーを追加
-        marker.bindPopup(pref.Name+city.Name,{closeButton: false, zIndexOffset: 10000, maxWidth: 10000})
         marker.bindPopup(data[key].kjName + "(" + data[key].knName + ")",{closeButton: false, zIndexOffset: 10000, maxWidth: 10000});
         marker.on('mouseover', function (e) {this.openPopup();});
         marker.on('mouseout', function (e) {this.closePopup();});
