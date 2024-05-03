@@ -3,6 +3,8 @@ function mapDraw(num){
 map = L.map('map', {
     zoomControl: false
 })
+var initialLatLng = L.latLng("35.39", "139.44");
+map.setView(initialLatLng, 12);
 L.control.scale({ maxWidth: 150, position: 'bottomright', imperial: false }).addTo(map);
 
 var PolygonLayer_Style_nerv = {
@@ -42,16 +44,16 @@ $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/"+new Date().getFullYear(
         var latitude = dmsToDd(data[key].lat[0], (data[key].lat[1]+"0").slice(0,2), (data[key].lat[1]+"0").slice(2), "N");
         var longitude = dmsToDd(data[key].lon[0], (data[key].lon[1]+"0").slice(0,2), (data[key].lon[1]+"0").slice(2), "E");
 
-        if(datas[i].temp[0] >= 0){
+        if(datas[key].temp[0] >= 0){
           var color = "blue"
           var rgba = "rgba(0,0,255,0.3)"
-        }else if(datas[i].temp[0] >= 10){
+        }else if(datas[key].temp[0] >= 10){
           var color = "yellow"
           var rgba = "rgba(255,255,0,0.3)"
-        }else if(datas[i].temp[0] >= 20){
+        }else if(datas[key].temp[0] >= 20){
           var color = "orange"
           var rgba = "rgba(255,165,0,0.3)"
-        }else if(datas[i].temp[0] >= 30){
+        }else if(datas[key].temp[0] >= 30){
           var color = "red"
           var rgba = "rgba(255,0,0,0.3)"
         }else {
