@@ -44,8 +44,7 @@ $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/"+new Date().getFullYear(
         var latitude = dmsToDd(data[key].lat[0], (data[key].lat[1]+"0").slice(0,2), (data[key].lat[1]+"0").slice(2), "N");
         var longitude = dmsToDd(data[key].lon[0], (data[key].lon[1]+"0").slice(0,2), (data[key].lon[1]+"0").slice(2), "E");
 
-        console.log(datas[key])
-
+        if(datas[key].temp){
         if(datas[key].temp[0] <= 0){
           var color = "blue"
           var rgba = "rgba(0,0,255,0.3)"
@@ -73,6 +72,7 @@ $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/"+new Date().getFullYear(
         marker.bindPopup(data[key].kjName + "(" + data[key].knName + ")",{closeButton: false, zIndexOffset: 10000, maxWidth: 10000});
         marker.on('mouseover', function (e) {this.openPopup();});
         marker.on('mouseout', function (e) {this.closePopup();});
+      }
       }
 });
     
