@@ -29,7 +29,7 @@ $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/"+new Date().getFullYear(
       var seconds = ('0' + date.getSeconds()).slice(-2); // 秒を2桁にする
       return year + '/' + month + '/' + day + ' ' + hours + ':' + minutes + ':' + seconds;
     }
-      for(var i = 0;i<datas.length;i++){
+      for (var key in datas) {
         function dmsToDd(degrees, minutes, seconds, direction) {
           var dd = degrees + minutes/60 + seconds/(60*60);
           if (direction == "S" || direction == "W") {
@@ -39,8 +39,8 @@ $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/"+new Date().getFullYear(
         }
 
         // 座標を度分秒形式から度数形式に変換
-        var latitude = dmsToDd(data[i].lat[0], (data[i].lat[1]+"0").slice(0,2), (data[i].lat[1]+"0").slice(2), "N");
-        var longitude = dmsToDd(data[i].lon[0], (data[i].lon[1]+"0").slice(0,2), (data[i].lon[1]+"0").slice(2), "E");
+        var latitude = dmsToDd(data[key].lat[0], (data[key].lat[1]+"0").slice(0,2), (data[key].lat[1]+"0").slice(2), "N");
+        var longitude = dmsToDd(data[key].lon[0], (data[key].lon[1]+"0").slice(0,2), (data[key].lon[1]+"0").slice(2), "E");
 
         if(datas[i].temp[0] >= 0){
           var color = "blue"
@@ -69,7 +69,7 @@ $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/"+new Date().getFullYear(
         // 地図にマーカーを追加
         marker.addTo(map);
         marker.bindPopup(pref.Name+city.Name,{closeButton: false, zIndexOffset: 10000, maxWidth: 10000})
-        marker.bindPopup(data[i].kjName + "(" + data[i].knName + ")",{closeButton: false, zIndexOffset: 10000, maxWidth: 10000});
+        marker.bindPopup(data[key].kjName + "(" + data[key].knName + ")",{closeButton: false, zIndexOffset: 10000, maxWidth: 10000});
         marker.on('mouseover', function (e) {this.openPopup();});
         marker.on('mouseout', function (e) {this.closePopup();});
       }
