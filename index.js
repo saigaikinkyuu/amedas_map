@@ -20,7 +20,7 @@ $.getJSON("./prefectures.geojson", function (data) {
         style: PolygonLayer_Style_nerv
     }).addTo(map);
 });
-$.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/"+new Date().getFullYear()+""+("0"+(new Date().getMonth()+1)).slice(-2)+""+("0"+new Date().getDate()).slice(-2)+""+("0"+new Date().getHours()).slice(-2)+""+((new Date().getMinutes()-10)+"0").slice(0,1)+"000.json", function (datas) {
+$.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/"+new Date().getFullYear()+""+("0"+(new Date().getMonth()+1)).slice(-2)+""+("0"+new Date().getDate()).slice(-2)+""+("0"+new Date().getHours()).slice(-2)+""+"0000.json", function (datas) {
     $.getJSON("https://www.jma.go.jp/bosai/amedas/const/amedastable.json", function (data) {
     function formatDate(date) {
       var year = date.getFullYear();
