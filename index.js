@@ -4,7 +4,7 @@ map = L.map('map', {
     zoomControl: false
 })
 var initialLatLng = L.latLng("35.39", "139.44");
-map.setView(initialLatLng, 12);
+map.setView(initialLatLng, 5);
 L.control.scale({ maxWidth: 150, position: 'bottomright', imperial: false }).addTo(map);
 
 var PolygonLayer_Style_nerv = {
@@ -14,6 +14,11 @@ var PolygonLayer_Style_nerv = {
     "fillColor": "#3a3a3a",
     "fillOpacity": 1
 }
+$.getJSON("./prefectures.geojson", function (data) {
+  L.geoJson(data, {
+    style: PolygonLayer_Style_nerv
+  }).addTo(map);
+});
 
 $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/"+new Date().getFullYear()+""+("0"+(new Date().getMonth()+1)).slice(-2)+""+("0"+new Date().getDate()).slice(-2)+""+("0"+new Date().getHours()).slice(-2)+""+"0000.json", function (datas) {
     $.getJSON("https://www.jma.go.jp/bosai/amedas/const/amedastable.json", function (data) {
@@ -62,18 +67,13 @@ $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/"+new Date().getFullYear(
           color: color, // 外側の色を赤に設定
           fillColor: rgba, // 中心の色を透明な赤に設定
           fillOpacity: 1 // 塗りつぶしの透明度を設定
-        }).addTo(map).bringToFront();
+        }).addTo(map);
         // 地図にマーカーを追加
         marker.bindPopup(data[key].kjName + "(" + data[key].knName + ")<br>"+datas[key].temp[0],{closeButton: false, zIndexOffset: 10000, maxWidth: 10000});
         marker.on('mouseover', function (e) {this.openPopup();});
         marker.on('mouseout', function (e) {this.closePopup();});
       }
       }
-        $.getJSON("./prefectures.geojson", function (data) {
-            L.geoJson(data, {
-                style: PolygonLayer_Style_nerv
-            }).addTo(map);
-        });
 });
     
 })
