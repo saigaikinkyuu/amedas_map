@@ -1,6 +1,5 @@
 // 現在時刻の取得
 var currentTime = new Date();
-var currentHour = currentTime.getHours();
 var currentYear = currentTime.getFullYear();
 var currentMonth = ('0' + (currentTime.getMonth() + 1)).slice(-2);
 var currentDay = ('0' + currentTime.getDate()).slice(-2);
@@ -8,29 +7,16 @@ var currentDay = ('0' + currentTime.getDate()).slice(-2);
 // データを格納する配列
 var datasets = [];
 
-// 過去12時間分のJSONファイルからデータを取得する
-for (var i = currentHour - 11; i <= currentHour; i++) {
-    // 時刻が負になる場合、前日の時間に設定
-    if (i < 0) {
-        i += 24;
-        currentDay -= 1;
-        if (currentDay === 0) {
-            currentMonth -= 1;
-            if (currentMonth === 0) {
-                currentYear -= 1;
-                currentMonth = 12;
-            }
-            // 月の日数を考慮して日付を調整
-            currentDay = new Date(currentYear, currentMonth, 0).getDate();
-        }
-    }
+// 過去24時間分のJSONファイルからデータを取得する
+for (var i = 0; i < 24; i++) {
+    var hour = ('0' + i).slice(-2); // 時間を2桁にする
 
     // 地点名（特定の地点番号）をURLから取得
     var hash = window.location.hash;
     var pointNumber = hash.substring(1);
 
     // ファイルパスを構築
-    var filePath = "https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + currentDay + ("0" + i).slice(-2) + "0000.json";
+    var filePath = "https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + currentDay + hour + "0000.json";
 
     // 各JSONファイルからデータを取得する
     $.getJSON(filePath, function(data) {
@@ -41,7 +27,7 @@ for (var i = currentHour - 11; i <= currentHour; i++) {
         datasets.push(temperatureData);
 
         // 全てのデータを取得したら、グラフを描画する
-        if (datasets.length === 12) {
+        if (datasets.length === 24) {
             drawChart(datasets);
         }
     });
@@ -51,10 +37,8 @@ for (var i = currentHour - 11; i <= currentHour; i++) {
 function drawChart(datasets) {
     // グラフ用のデータを準備する
     var labels = []; // X軸のラベル
-    for (var k = currentHour - 11; k <= currentHour; k++) {
-        // 時刻が負になる場合、24時間を加算して正の値にする
-        var hour = k < 0 ? k + 24 : k;
-        labels.push(hour + ':00'); // 時間をX軸のラベルとして追加
+    for (var k = 0; k < 24; k++) {
+        labels.push(k + ':00'); // 時間をX軸のラベルとして追加
     }
 
     // グラフを描画する
@@ -64,7 +48,7 @@ function drawChart(datasets) {
         data: {
             labels: labels, // X軸のラベル
             datasets: [{
-                label: '気温', // ラベル
+                label: '温度', // ラベル
                 data: datasets, // Y軸の値
                 backgroundColor: 'rgba(255, 99, 132, 0.2)', // 塗りつぶし色
                 borderColor: 'rgba(255, 99, 132, 1)', // 線の色
