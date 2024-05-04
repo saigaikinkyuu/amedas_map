@@ -58,7 +58,7 @@ for (var i = currentHour - 23; n < 24; i++) {
 function drawChart(datasets) {
     // グラフ用のデータを準備する
     var labels = []; // X軸のラベル
-    for (var k = currentHour - 11; k <= currentHour; k++) {
+    for (var k = currentHour - 23; k <= currentHour; k++) {
         // 時刻が負になる場合、24時間を加算して正の値にする
         var hour = k < 0 ? k + 24 : k;
         labels.push(hour + ':00'); // 時間をX軸のラベルとして追加
