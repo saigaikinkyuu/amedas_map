@@ -89,17 +89,17 @@ function drawChart(datasets,kind) {
         var hour = k < 0 ? k + 24 : k;
         labels.push(hour + ':00'); // 時間をX軸のラベルとして追加
     }
-    if(kind === 1){
+    if(kind === "1"){
         var max = 40
         var min = -20
         var type = "気温"
         var color = 'rgba(255, 99, 132, 1)'
-    }else if(kind === 2){
+    }else if(kind === "2"){
         var max = 100
         var min = 0
         var type = "湿度"
         var color = 'rgba(0, 255, 255, 1)'
-    }else if(kind === 3){
+    }else if(kind === "3"){
         var max = 140
         var min = 0
         var type = "降水量"
@@ -164,7 +164,7 @@ function content(){
             min = currentMin.slice(0,1)
         }
         $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + currentHour).slice(-2) + "" + min + "000.json", function (datas) {
-            if(kind === 1){
+            if(kind === "1"){
               var temp = datas[pointNumber].temp[0]
               if(Number.isInteger(temp) === false){
                   var tempResult = ("0" + temp).slice(-4)
@@ -176,13 +176,13 @@ function content(){
                   }
               }
               document.getElementById("temp").innerHTML = ("0" + hour).slice(-2) + "時" + min + "0分時点　" + temp + "℃"
-            }else if(kind === 2){
+            }else if(kind === "2"){
               var temp = datas[pointNumber].humidity[0]
               if(temp.length === 1){
                   temp = ("0" + temp).slice(-2)
               }
               document.getElementById("temp").innerHTML = ("0" + hour).slice(-2) + "時" + min + "0分時点　" + temp + "%"
-            }else if(kind === 3){
+            }else if(kind === "3"){
               var temp = datas[pointNumber].precipitation1h[0]
               document.getElementById("temp").innerHTML = ("0" + hour).slice(-2) + "時" + min + "0分時点　" + temp + "mm"
             }
