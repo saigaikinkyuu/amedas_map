@@ -30,6 +30,8 @@ for (var i = currentHour - 23; n < 24; i++) {
     }else if(i >= 24){
         currentDay = ('0' + currentTime.getDate()).slice(-2);
         hour = i-24
+    }else {
+        hour = i
     }
 
     // 地点名（特定の地点番号）をURLから取得
