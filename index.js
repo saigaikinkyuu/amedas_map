@@ -27,6 +27,32 @@ function mapDraw(num) {
                 "fillOpacity": 1
             }
         }).addTo(map);
+        
+        var currentTime = new Date();
+        var currentMin = ('0' + currentTime.getMinutes()).slice(-2);
+        var currentHour = currentTime.getHours();
+        var currentYear = currentTime.getFullYear();
+        var currentMonth = ('0' + (currentTime.getMonth() + 1)).slice(-2);
+        var currentDay = ('0' + currentTime.getDate()).slice(-2);
+        var min = 0
+        if(currentMin.slice(0,1) === 0 || currentMin.slice(1,2) <= 5){
+            currentHour -= 1
+            min = currentMin.slice(0,1)-1
+            if(currentHour < 0){
+                currentHour += 23
+                currentDay -= 1
+                if(currentDay <= 0){
+                    currentMonth -= 1
+                    currentDay = new Date(currentYear, currentMonth, 0).getDate();
+                    if(currentMonth <= 0){
+                        currentMonth += 12
+                        currentYear -= 1
+                    }
+                }
+            }
+        }else {
+            min = currentMin.slice(0,1)
+        }
 
         // AMeDAS データを読み込み、円を追加
         $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/" + new Date().getFullYear() + ("0" + (new Date().getMonth() + 1)).slice(-2) + ("0" + new Date().getDate()).slice(-2) + ("0" + new Date().getHours()).slice(-2) + "0000.json", function (datas) {
