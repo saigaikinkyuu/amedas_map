@@ -22,8 +22,6 @@ function mapDraw(num) {
         "fillOpacity": 1
     }
 
-    // 地図タイルのレイヤーを作成して地図に追加
-    var tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
 
     // 新しいレイヤーグループを作成
     var circleLayer = L.layerGroup().addTo(map);
