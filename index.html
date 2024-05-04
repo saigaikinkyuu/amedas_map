@@ -55,7 +55,7 @@
     </style>
     <div id="map"></div>
     <div style="position: absolute;z-index: 10000;bottom: 600px;color: #00068d;background-color: white;padding: 4px;width: 340px;font-size: 35px;border: 4px solid #00068d;border-left-color: white;">
-        <h3 style="margin: 0px;text-align: right;">アメダス・気温</h3>
+        <h3 id="title" style="margin: 0px;text-align: right;">アメダス・気温</h3>
     </div>
     <div id="setting_MAP" style="position: absolute;z-index: 10000;bottom: 0px;height: 60px;">
         <div style="display: flex;padding-top: 10px;">
@@ -74,6 +74,7 @@
         let element3 = document.getElementById("puressure")
         let result = element1.dataset.swich
         if(result === "off"){
+            document.getElementById("title").textContent = "アメダス・気温"
             element1.dataset.swich = "on"
             element2.dataset.swich = "off"
             element3.dataset.swich = "off"
@@ -94,7 +95,7 @@
         let element3 = document.getElementById("puressure")
         let result = element1.dataset.swich
         if(result === "off"){
-            element1.textContent = "アメダス・気温"
+            document.getElementById("title").textContent = "アメダス・湿度"
             element1.dataset.swich = "on"
             element2.dataset.swich = "off"
             element3.dataset.swich = "off"
@@ -115,7 +116,7 @@
         let element1 = document.getElementById("puressure")
         let result = element1.dataset.swich
         if(result === "off"){
-            element1.textContent = "アメダス・湿度"
+            document.getElementById("title").textContent = "アメダス・降水量"
             element1.dataset.swich = "on"
             element2.dataset.swich = "off"
             element3.dataset.swich = "off"
@@ -135,7 +136,6 @@
         let element1 = document.getElementById("infoOFF")
         let result = element1.dataset.swich
         if(result === "off"){
-            element1.textContent = "アメダス・降水量"
             element1.dataset.swich = "on"
             element2.dataset.swich = "off"
             element1.classList.toggle('on');
