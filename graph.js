@@ -33,7 +33,7 @@ for (var i = currentHour - 23; i <= currentHour; i++) {
     var pointNumber = hash.substring(1);
 
     // ファイルパスを構築
-    var filePath = "https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + currentDay + ("0" + i).slice(-2) + "0000.json";
+    var filePath = "https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + i).slice(-2) + "0000.json";
 
     // 各JSONファイルからデータを取得する
     $.getJSON(filePath, function(data) {
