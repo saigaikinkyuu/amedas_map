@@ -48,6 +48,8 @@ function mapDraw(num) {
                         }
                         return dd;
                     }
+                    var markerData = datas[key];
+                    markerData.url = 'https://amedas.jkisyou.com/graph.html#' + key;
 
                     var latitude = dmsToDd(data[key].lat[0], (data[key].lat[1] + "0").slice(0, 2), (data[key].lat[1] + "0").slice(2), "N");
                     var longitude = dmsToDd(data[key].lon[0], (data[key].lon[1] + "0").slice(0, 2), (data[key].lon[1] + "0").slice(2), "E");
@@ -87,6 +89,10 @@ function mapDraw(num) {
                         });
                         marker.on('mouseout', function (e) {
                             this.closePopup();
+                        });
+                        marker.on('click', function () {
+                            // マーカーに関連付けられた URL を開く
+                            window.open(markerData.url, '_blank');
                         });
                     }
                 }
