@@ -157,18 +157,6 @@
     });
     </script>
     <script>
-    document.getElementById("takePicture").addEventListener("click", function(event) {
-        event.preventDefault(); // デフォルトのクリック動作を無効化
-        
-      html2canvas(document.body,{
-        onrendered: function(canvas){
-          //aタグのhrefにキャプチャ画像のURLを設定
-          document.getElementById("screenshot").href = canvas.toDataURL("image/png");
-        }
-      });
-    })
-    </script>
-    <script>
         function hideContent(){
             document.getElementById("chart").style.display = "none"
             document.getElementById("site_chart").src = "#"
