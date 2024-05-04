@@ -27,7 +27,7 @@ for (var i = currentHour - 23; n < 24; i++) {
             currentDay = new Date(currentYear, currentMonth, 0).getDate();
         }
         hour = i
-    }else if(i > 24){
+    }else if(i >= 24){
         currentDay = ('0' + currentTime.getDate()).slice(-2);
         hour = i-24
     }
@@ -37,7 +37,7 @@ for (var i = currentHour - 23; n < 24; i++) {
     var pointNumber = hash.substring(1);
 
     // ファイルパスを構築
-    var filePath = "https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + i).slice(-2) + "0000.json";
+    var filePath = "https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + hour).slice(-2) + "0000.json";
 
     // 各JSONファイルからデータを取得する
     $.getJSON(filePath, function(data) {
