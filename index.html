@@ -77,12 +77,12 @@
             element1.dataset.swich = "on"
             element2.dataset.swich = "off"
             element3.dataset.swich = "off"
-            element1.classList.toggle('on');
-            element1.classList.toggle('off');
-            element2.classList.toggle('on');
-            element2.classList.toggle('off');
-            element3.classList.toggle('on');
-            element3.classList.toggle('off');
+            if(element2.className === "on"){
+                element2.classList.remove('on');
+                element2.classList.add('off');
+            }
+            element1.classList.add('on');
+            element1.classList.remove('off');
             changeMap(1)
         }
     });
@@ -97,12 +97,12 @@
             element1.dataset.swich = "on"
             element2.dataset.swich = "off"
             element3.dataset.swich = "off"
-            element1.classList.toggle('on');
-            element1.classList.toggle('off');
-            element2.classList.toggle('on');
-            element2.classList.toggle('off');
-            element3.classList.toggle('on');
-            element3.classList.toggle('off');
+            if(element1.className === "on"){
+                element1.classList.remove('on');
+                element1.classList.add('off');
+            }
+            element2.classList.add('on');
+            element2.classList.remove('off');
             changeMap(2)
         }
     });
@@ -117,12 +117,12 @@
             element1.dataset.swich = "on"
             element2.dataset.swich = "off"
             element3.dataset.swich = "off"
-            element1.classList.toggle('on');
-            element1.classList.toggle('off');
-            element2.classList.toggle('on');
-            element2.classList.toggle('off');
-            element3.classList.toggle('on');
-            element3.classList.toggle('off');
+            if(element1.className === "on"){
+                element1.classList.remove('on');
+                element1.classList.add('off');
+            }
+            element3.classList.add('on');
+            element3.classList.remove('off');
             changeMap(3)
         }
     });
