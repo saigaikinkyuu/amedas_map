@@ -1,4 +1,4 @@
-//2024.05.04 13:33
+//2024.05.04 13:35
 // 現在時刻の取得
 var currentTime = new Date();
 var currentHour = currentTime.getHours();
@@ -22,7 +22,8 @@ for (var i = currentHour - 23; i <= currentHour; i++) {
                 currentMonth = 12;
             }
             // 月の日数を考慮して日付を調整
-            currentDay = ('0' + new Date(currentYear, currentMonth, 0).getDate()).slice(-2);
+            var daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
+            currentDay = ('0' + (daysInMonth - Math.abs(currentDay))).slice(-2);
         }
     }
 
@@ -81,3 +82,4 @@ function drawChart(datasets) {
         }
     });
 }
+
