@@ -66,9 +66,8 @@ $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/"+new Date().getFullYear(
           radius: 10, // 半径を設定
           color: color, // 外側の色を赤に設定
           fillColor: rgba, // 中心の色を透明な赤に設定
-          fillOpacity: 1, // 塗りつぶしの透明度を設定
-          zIndexOffset: 1000
-        }).addTo(map);
+          fillOpacity: 1 // 塗りつぶしの透明度を設定
+        }).addTo(map).bringToFront();
         // 地図にマーカーを追加
         marker.bindPopup(data[key].kjName + "(" + data[key].knName + ")<br>"+datas[key].temp[0],{closeButton: false, zIndexOffset: 10000, maxWidth: 10000});
         marker.on('mouseover', function (e) {this.openPopup();});
