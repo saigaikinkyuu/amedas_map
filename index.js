@@ -133,7 +133,7 @@ function mapDraw(num) {
                                 document.getElementById("site_chart").src = url
                             };
                         })(url));
-                    }else if(num === 2){
+                    }else if(datas[key].humidity && num === 2){
                         if (datas[key].humidity[0] <= 10) {
                             var color = "#785046"
                             var rgba = "rgba(120, 80, 70,0.3)"
@@ -193,7 +193,7 @@ function mapDraw(num) {
                                 document.getElementById("site_chart").src = url
                             };
                         })(url));
-                    }else if(num === 3){
+                    }else if(datas[key].precipitation1h && num === 3){
                         if (datas[key].precipitation1h[0] <= 0.1) {
                             var color = "#785046"
                             var rgba = "rgba(120, 80, 70,0.3)"
