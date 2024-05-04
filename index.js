@@ -90,10 +90,13 @@ function mapDraw(num) {
                         marker.on('mouseout', function (e) {
                             this.closePopup();
                         });
+                        var url = "https://amedas.jkisyou.com/graph.html#" + key
                         // マーカーをクリックした際の処理
-                        marker.on('click', function (e) {
-                            window.open("https://amedas.jkisyou.com/graph.html#" + key, '_blank'); // 新しいタブでURLを開く
-                        });
+                        marker.on('click', (function(url) {
+                            return function(e) {
+                                window.open(url, '_blank'); // 新しいタブでURLを開く
+                            };
+                        })(url));
                     }
                 }
             });
