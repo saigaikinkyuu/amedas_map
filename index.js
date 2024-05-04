@@ -80,17 +80,145 @@ function mapDraw(num) {
                     var latitude = dmsToDd(data[key].lat[0], (data[key].lat[1] + "0").slice(0, 2), (data[key].lat[1] + "0").slice(2), "N");
                     var longitude = dmsToDd(data[key].lon[0], (data[key].lon[1] + "0").slice(0, 2), (data[key].lon[1] + "0").slice(2), "E");
 
-                    if (datas[key].temp) {
-                        if (datas[key].temp[0] <= 0) {
+                    if (datas[key].temp && i === 1 || i === "None") {
+                        if (datas[key].temp[0] <= -5) {
                             var color = "blue"
                             var rgba = "rgba(0,0,255,0.3)"
-                        } else if (datas[key].temp[0] <= 10) {
+                        } else if (datas[key].temp[0] <= 0) {
                             var color = "yellow"
                             var rgba = "rgba(255,255,0,0.3)"
+                        } else if (datas[key].temp[0] <= 5) {
+                            var color = "orange"
+                            var rgba = "rgba(255,165,0,0.3)"
+                        } else if (datas[key].temp[0] <= 10) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else if (datas[key].temp[0] <= 15) {
+                            //ここまで作業終了「-5」まで色を変更する
+                            var color = "#00c800"
+                            var rgba = "rgba(0, 200, 0 ,0.3)"
                         } else if (datas[key].temp[0] <= 20) {
                             var color = "orange"
                             var rgba = "rgba(255,165,0,0.3)"
-                        } else if (datas[key].temp[0] <= 30) {
+                        } else if (datas[key].temp[0] <= 25) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else {
+                            var color = "purple"
+                            var rgba = "rgba(170,0,199,0.3)"
+                        }
+                        var markerL = new L.LatLng(latitude, longitude);
+                        var marker = L.circleMarker(markerL, {
+                            radius: 6,
+                            color: color,
+                            fillColor: rgba,
+                            fillOpacity: 1
+                        }).addTo(map);
+                        // 地図にマーカーを追加
+                        marker.bindPopup("<div style='text-align: center;'>"+data[key].kjName + "(" + data[key].knName + ")<br>" + datas[key].temp[0]+"℃</div>", {
+                            closeButton: false,
+                            zIndexOffset: 10000,
+                            maxWidth: 10000
+                        });
+                        marker.on('mouseover', function (e) {
+                            this.openPopup();
+                        });
+                        marker.on('mouseout', function (e) {
+                            this.closePopup();
+                        });
+                        var url = "https://amedas.jkisyou.com/graph.html#" + key
+                        // マーカーをクリックした際の処理
+                        marker.on('click', (function(url) {
+                            return function(e) {
+                                document.getElementById("chart").style.display = "block"
+                                document.getElementById("site_chart").src = url
+                            };
+                        })(url));
+                    }else if(i === 2){
+                        if (datas[key].humidity[0] <= 10) {
+                            var color = "blue"
+                            var rgba = "rgba(0,0,255,0.3)"
+                        } else if (datas[key].humidity[0] <= 20) {
+                            var color = "yellow"
+                            var rgba = "rgba(255,255,0,0.3)"
+                        } else if (datas[key].humidity[0] <= 30) {
+                            var color = "orange"
+                            var rgba = "rgba(255,165,0,0.3)"
+                        } else if (datas[key].humidity[0] <= 40) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else if (datas[key].humidity[0] <= 50) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else if (datas[key].humidity[0] <= 60) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else if (datas[key].humidity[0] <= 70) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else if (datas[key].humidity[0] <= 80) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else {
+                            var color = "purple"
+                            var rgba = "rgba(170,0,199,0.3)"
+                        }
+                        var markerL = new L.LatLng(latitude, longitude);
+                        var marker = L.circleMarker(markerL, {
+                            radius: 6,
+                            color: color,
+                            fillColor: rgba,
+                            fillOpacity: 1
+                        }).addTo(map);
+                        // 地図にマーカーを追加
+                        marker.bindPopup("<div style='text-align: center;'>"+data[key].kjName + "(" + data[key].knName + ")<br>" + datas[key].temp[0]+"℃</div>", {
+                            closeButton: false,
+                            zIndexOffset: 10000,
+                            maxWidth: 10000
+                        });
+                        marker.on('mouseover', function (e) {
+                            this.openPopup();
+                        });
+                        marker.on('mouseout', function (e) {
+                            this.closePopup();
+                        });
+                        var url = "https://amedas.jkisyou.com/graph.html#" + key
+                        // マーカーをクリックした際の処理
+                        marker.on('click', (function(url) {
+                            return function(e) {
+                                document.getElementById("chart").style.display = "block"
+                                document.getElementById("site_chart").src = url
+                            };
+                        })(url));
+                    }else if(i === 3){
+                        if (datas[key].precipitation1h[0] <= 0.1) {
+                            var color = "blue"
+                            var rgba = "rgba(0,0,255,0.3)"
+                        } else if (datas[key].precipitation1h[0] <= 0.5) {
+                            var color = "orange"
+                            var rgba = "rgba(255,165,0,0.3)"
+                        } else if (datas[key].precipitation1h[0] <= 1) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else if (datas[key].precipitation1h[0] <= 5) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else if (datas[key].precipitation1h[0] <= 10) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else if (datas[key].precipitation1h[0] <= 20) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else if (datas[key].precipitation1h[0] <= 30) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else if (datas[key].precipitation1h[0] <= 40) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else if (datas[key].precipitation1h[0] <= 50) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else if (datas[key].precipitation1h[0] <= 100) {
                             var color = "red"
                             var rgba = "rgba(255,0,0,0.3)"
                         } else {
