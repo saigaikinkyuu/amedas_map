@@ -67,6 +67,108 @@
     </div>
     <script src="./index.js"></script>
     <script>
+    document.getElementById("temp").addEventListener("click", function(event) {
+        event.preventDefault(); // デフォルトのクリック動作を無効化
+        let element1 = document.getElementById("temp")
+        let element2 = document.getElementById("humid")
+        let element3 = document.getElementById("puressure")
+        let result = element1.dataset.swich
+        if(result === "off"){
+            element1.dataset.swich = "on"
+            element2.dataset.swich = "off"
+            element3.dataset.swich = "off"
+            element1.classList.toggle('on');
+            element1.classList.toggle('off');
+            element2.classList.toggle('on');
+            element2.classList.toggle('off');
+            element3.classList.toggle('on');
+            element3.classList.toggle('off');
+        }
+    });
+
+    document.getElementById("humid").addEventListener("click", function(event) {
+        event.preventDefault(); // デフォルトのクリック動作を無効化
+        let element2 = document.getElementById("temp")
+        let element1 = document.getElementById("humid")
+        let element3 = document.getElementById("puressure")
+        let result = element1.dataset.swich
+        if(result === "off"){
+            element1.dataset.swich = "on"
+            element2.dataset.swich = "off"
+            element3.dataset.swich = "off"
+            element1.classList.toggle('on');
+            element1.classList.toggle('off');
+            element2.classList.toggle('on');
+            element2.classList.toggle('off');
+            element3.classList.toggle('on');
+            element3.classList.toggle('off');
+        }
+    });
+
+    document.getElementById("puressure").addEventListener("click", function(event) {
+        event.preventDefault(); // デフォルトのクリック動作を無効化
+        let element3 = document.getElementById("temp")
+        let element2 = document.getElementById("humid")
+        let element1 = document.getElementById("puressure")
+        let result = element1.dataset.swich
+        if(result === "off"){
+            element1.dataset.swich = "on"
+            element2.dataset.swich = "off"
+            element3.dataset.swich = "off"
+            element1.classList.toggle('on');
+            element1.classList.toggle('off');
+            element2.classList.toggle('on');
+            element2.classList.toggle('off');
+            element3.classList.toggle('on');
+            element3.classList.toggle('off');
+        }
+    });
+
+    document.getElementById("autoON").addEventListener("click", function(event) {
+        event.preventDefault(); // デフォルトのクリック動作を無効化
+        let element2 = document.getElementById("infoON")
+        let element1 = document.getElementById("infoOFF")
+        let result = element1.dataset.swich
+        if(result === "off"){
+            element1.dataset.swich = "on"
+            element2.dataset.swich = "off"
+            element1.classList.toggle('on');
+            element1.classList.toggle('off');
+            element2.classList.toggle('on');
+            element2.classList.toggle('off');
+            document.getElementById("list").style.display = "none"
+        }
+    });
+
+    document.getElementById("autoOFF").addEventListener("click", function(event) {
+        event.preventDefault(); // デフォルトのクリック動作を無効化
+        let element2 = document.getElementById("infoON")
+        let element1 = document.getElementById("infoOFF")
+        let result = element1.dataset.swich
+        if(result === "off"){
+            element1.dataset.swich = "on"
+            element2.dataset.swich = "off"
+            element1.classList.toggle('on');
+            element1.classList.toggle('off');
+            element2.classList.toggle('on');
+            element2.classList.toggle('off');
+            document.getElementById("list").style.display = "none"
+        }
+    });
+    </script>
+    <script>
+    document.getElementById("takePicture").addEventListener("click", function(event) {
+        event.preventDefault(); // デフォルトのクリック動作を無効化
+        
+      html2canvas(document.body,{
+        onrendered: function(canvas){
+          //aタグのhrefにキャプチャ画像のURLを設定
+          document.getElementById("screenshot").href = canvas.toDataURL("image/png");
+        }
+      });
+    })
+    </script>
+    <script>
         function hideContent(){
             document.getElementById("chart").style.display = "none"
             document.getElementById("site_chart").src = "#"
