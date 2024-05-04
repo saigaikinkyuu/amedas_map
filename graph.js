@@ -90,3 +90,6 @@ function drawChart(datasets) {
         }
     });
 }
+function content(){
+    //
+}
