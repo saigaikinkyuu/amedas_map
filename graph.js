@@ -1,3 +1,4 @@
+//2024.05.04 13:33
 // 現在時刻の取得
 var currentTime = new Date();
 var currentHour = currentTime.getHours();
@@ -30,7 +31,7 @@ for (var i = currentHour - 23; i <= currentHour; i++) {
     var pointNumber = hash.substring(1);
 
     // ファイルパスを構築
-    var filePath = "https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + currentDay + ("0" + i).slice(-2) + "0000.json";
+    var filePath = "https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + currentDay + ('0' + i).slice(-2) + "0000.json";
 
     // 各JSONファイルからデータを取得する
     $.getJSON(filePath, function(data) {
@@ -64,7 +65,7 @@ function drawChart(datasets) {
         data: {
             labels: labels, // X軸のラベル
             datasets: [{
-                label: '気温', // ラベル
+                label: '温度', // ラベル
                 data: datasets, // Y軸の値
                 backgroundColor: 'rgba(255, 99, 132, 0.2)', // 塗りつぶし色
                 borderColor: 'rgba(255, 99, 132, 1)', // 線の色
