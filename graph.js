@@ -83,7 +83,8 @@ function drawChart(datasets) {
         options: {
             scales: {
                 y: {
-                    beginAtZero: true // Y軸を0から始める
+                    min: -20,
+                    max: 40
                 }
             }
         }
