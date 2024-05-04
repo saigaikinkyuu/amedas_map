@@ -75,7 +75,7 @@ function mapDraw(num) {
                             fillOpacity: 1
                         }).addTo(map);
                         // 地図にマーカーを追加
-                        marker.bindPopup("<span style='text-align: center;'>"+data[key].kjName + "(" + data[key].knName + ")<br>" + datas[key].temp[0]+"℃</span>", {
+                        marker.bindPopup("<div style='text-align: center;'>"+data[key].kjName + "(" + data[key].knName + ")<br>" + datas[key].temp[0]+"℃</div>", {
                             closeButton: false,
                             zIndexOffset: 10000,
                             maxWidth: 10000
