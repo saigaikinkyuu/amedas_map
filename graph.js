@@ -38,6 +38,7 @@ for (var i = currentHour - 23; n < 24; i++) {
     var hash = window.location.hash;
     var pointNumber = ("" + hash.substring(1)).slice(0,5);
     var kind = ("" + hash.substring(1)).slice(-1);
+    console.log(pointNumber + "," + kind)
 
     // ファイルパスを構築
     var filePath = "https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + hour).slice(-2) + "0000.json";
