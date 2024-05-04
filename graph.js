@@ -5,18 +5,17 @@ var currentHour = currentTime.getHours();
 var currentYear = currentTime.getFullYear();
 var currentMonth = ('0' + (currentTime.getMonth() + 1)).slice(-2);
 var currentDay = ('0' + currentTime.getDate()).slice(-2);
-console.log(currentDay)
 
 // データを格納する配列
 var datasets = [];
-
+var n = 0
 // 過去12時間分のJSONファイルからデータを取得する
-for (var i = currentHour - 23; i <= currentHour; i++) {
+for (var i = currentHour - 23; n < 24; i++) {
+    n++
     // 時刻が負になる場合、前日の時間に設定
     if (i < 0) {
         i += 24;
         currentDay -= 1;
-        console.log(currentDay)
         if (currentDay === 0) {
             currentMonth -= 1;
             if (currentMonth === 0) {
