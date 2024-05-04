@@ -80,7 +80,7 @@ function mapDraw(num) {
                     var latitude = dmsToDd(data[key].lat[0], (data[key].lat[1] + "0").slice(0, 2), (data[key].lat[1] + "0").slice(2), "N");
                     var longitude = dmsToDd(data[key].lon[0], (data[key].lon[1] + "0").slice(0, 2), (data[key].lon[1] + "0").slice(2), "E");
 
-                    if (datas[key].temp && num === 1 || num === "None") {
+                    if (datas[key].temp && num === 1) {
                         if (datas[key].temp[0] <= -5) {
                             var color = "#969696"
                             var rgba = "rgba(150, 150, 150,0.3)"
@@ -266,7 +266,7 @@ function changeMap(i) {
 }
 
 function start() {
-    mapDraw("None");
+    mapDraw(1);
 }
 
 start();
