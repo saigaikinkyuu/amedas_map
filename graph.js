@@ -9,6 +9,7 @@ var currentDay = ('0' + currentTime.getDate()).slice(-2);
 // データを格納する配列
 var datasets = [];
 var n = 0
+var hour = 0
 // 過去12時間分のJSONファイルからデータを取得する
 for (var i = currentHour - 23; n < 24; i++) {
     n++
@@ -25,6 +26,10 @@ for (var i = currentHour - 23; n < 24; i++) {
             // 月の日数を考慮して日付を調整
             currentDay = new Date(currentYear, currentMonth, 0).getDate();
         }
+        hour = i
+    }else if(i > 24){
+        currentDay = ('0' + currentTime.getDate()).slice(-2);
+        hour = i-24
     }
 
     // 地点名（特定の地点番号）をURLから取得
