@@ -9,7 +9,7 @@ var currentDay = ('0' + currentTime.getDate()).slice(-2);
 // データを格納する配列
 var datasets = [];
 
-// 過去23時間分のJSONファイルからデータを取得する
+// 過去12時間分のJSONファイルからデータを取得する
 for (var i = currentHour - 23; i <= currentHour; i++) {
     // 時刻が負になる場合、前日の時間に設定
     if (i < 0) {
@@ -22,8 +22,7 @@ for (var i = currentHour - 23; i <= currentHour; i++) {
                 currentMonth = 12;
             }
             // 月の日数を考慮して日付を調整
-            var daysInMonth = new Date(currentYear, currentMonth, 0).getDate();
-            currentDay = ('0' + (daysInMonth - Math.abs(currentDay))).slice(-2);
+            currentDay = new Date(currentYear, currentMonth, 0).getDate();
         }
     }
 
@@ -32,7 +31,7 @@ for (var i = currentHour - 23; i <= currentHour; i++) {
     var pointNumber = hash.substring(1);
 
     // ファイルパスを構築
-    var filePath = "https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + currentDay + ('0' + i).slice(-2) + "0000.json";
+    var filePath = "https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + currentDay + ("0" + i).slice(-2) + "0000.json";
 
     // 各JSONファイルからデータを取得する
     $.getJSON(filePath, function(data) {
@@ -43,7 +42,7 @@ for (var i = currentHour - 23; i <= currentHour; i++) {
         datasets.push(temperatureData);
 
         // 全てのデータを取得したら、グラフを描画する
-        if (datasets.length === 24) {
+        if (datasets.length === 12) {
             drawChart(datasets);
         }
     });
@@ -53,10 +52,10 @@ for (var i = currentHour - 23; i <= currentHour; i++) {
 function drawChart(datasets) {
     // グラフ用のデータを準備する
     var labels = []; // X軸のラベル
-    for (var k = currentHour - 23; k <= currentHour; k++) {
+    for (var k = currentHour - 11; k <= currentHour; k++) {
         // 時刻が負になる場合、24時間を加算して正の値にする
         var hour = k < 0 ? k + 24 : k;
-        labels.push(('0' + hour).slice(-2) + ':00'); // 時間をX軸のラベルとして追加
+        labels.push(hour + ':00'); // 時間をX軸のラベルとして追加
     }
 
     // グラフを描画する
@@ -82,4 +81,3 @@ function drawChart(datasets) {
         }
     });
 }
-
