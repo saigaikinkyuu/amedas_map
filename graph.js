@@ -52,6 +52,7 @@ for (var i = currentHour - 23; n < 24; i++) {
         // 全てのデータを取得したら、グラフを描画する
         if (datasets.length === 23) {
             drawChart(datasets);
+            content()
         }
     });
 }
@@ -137,5 +138,3 @@ function content(){
         })
     })
 }
-
-content()
