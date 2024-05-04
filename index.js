@@ -90,9 +90,9 @@ function mapDraw(num) {
                         marker.on('mouseout', function (e) {
                             this.closePopup();
                         });
-                        marker.on('click', function () {
-                            // マーカーに関連付けられた URL を開く
-                            window.open(markerData.url, '_blank');
+                        // マーカーをクリックした際の処理
+                        marker.on('click', function (e) {
+                            window.open("https://amedas.jkisyou.com/graph.html#" + key, '_blank'); // 新しいタブでURLを開く
                         });
                     }
                 }
