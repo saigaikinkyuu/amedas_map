@@ -5,6 +5,7 @@ var currentHour = currentTime.getHours();
 var currentYear = currentTime.getFullYear();
 var currentMonth = ('0' + (currentTime.getMonth() + 1)).slice(-2);
 var currentDay = ('0' + currentTime.getDate()).slice(-2);
+console.log(currentDay)
 
 // データを格納する配列
 var datasets = [];
@@ -15,6 +16,7 @@ for (var i = currentHour - 23; i <= currentHour; i++) {
     if (i < 0) {
         i += 24;
         currentDay -= 1;
+        console.log(currentDay)
         if (currentDay === 0) {
             currentMonth -= 1;
             if (currentMonth === 0) {
