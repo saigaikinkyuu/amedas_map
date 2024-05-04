@@ -82,21 +82,20 @@ function mapDraw(num) {
 
                     if (datas[key].temp && i === 1 || i === "None") {
                         if (datas[key].temp[0] <= -5) {
-                            var color = "blue"
-                            var rgba = "rgba(0,0,255,0.3)"
+                            var color = "#969696"
+                            var rgba = "rgba(150, 150, 150,0.3)"
                         } else if (datas[key].temp[0] <= 0) {
-                            var color = "yellow"
-                            var rgba = "rgba(255,255,0,0.3)"
+                            var color = "blue"
+                            var rgba = "rgba(000,000,200,0.3)"
                         } else if (datas[key].temp[0] <= 5) {
-                            var color = "orange"
-                            var rgba = "rgba(255,165,0,0.3)"
+                            var color = "#0096c8"
+                            var rgba = "rgba(0, 150, 200,0.3)"
                         } else if (datas[key].temp[0] <= 10) {
-                            var color = "red"
-                            var rgba = "rgba(255,0,0,0.3)"
-                        } else if (datas[key].temp[0] <= 15) {
-                            //ここまで作業終了「-5」まで色を変更する
                             var color = "#00c800"
                             var rgba = "rgba(0, 200, 0 ,0.3)"
+                        } else if (datas[key].temp[0] <= 15) {
+                            var color = "yellow"
+                            var rgba = "rgba(255,255,0,0.3)"
                         } else if (datas[key].temp[0] <= 20) {
                             var color = "orange"
                             var rgba = "rgba(255,165,0,0.3)"
@@ -159,7 +158,11 @@ function mapDraw(num) {
                         } else if (datas[key].humidity[0] <= 80) {
                             var color = "red"
                             var rgba = "rgba(255,0,0,0.3)"
+                        } else if (datas[key].humidity[0] <= 90) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
                         } else {
+                            //ここまで作業終了「10%」まで色を変更する
                             var color = "purple"
                             var rgba = "rgba(170,0,199,0.3)"
                         }
@@ -171,7 +174,7 @@ function mapDraw(num) {
                             fillOpacity: 1
                         }).addTo(map);
                         // 地図にマーカーを追加
-                        marker.bindPopup("<div style='text-align: center;'>"+data[key].kjName + "(" + data[key].knName + ")<br>" + datas[key].temp[0]+"℃</div>", {
+                        marker.bindPopup("<div style='text-align: center;'>"+data[key].kjName + "(" + data[key].knName + ")<br>" + datas[key].humidity[0]+"%</div>", {
                             closeButton: false,
                             zIndexOffset: 10000,
                             maxWidth: 10000
