@@ -80,7 +80,7 @@ function mapDraw(num) {
                     var latitude = dmsToDd(data[key].lat[0], (data[key].lat[1] + "0").slice(0, 2), (data[key].lat[1] + "0").slice(2), "N");
                     var longitude = dmsToDd(data[key].lon[0], (data[key].lon[1] + "0").slice(0, 2), (data[key].lon[1] + "0").slice(2), "E");
 
-                    if (datas[key].temp && i === 1 || i === "None") {
+                    if (datas[key].temp && num === 1 || num === "None") {
                         if (datas[key].temp[0] <= -5) {
                             var color = "#969696"
                             var rgba = "rgba(150, 150, 150,0.3)"
@@ -133,7 +133,7 @@ function mapDraw(num) {
                                 document.getElementById("site_chart").src = url
                             };
                         })(url));
-                    }else if(i === 2){
+                    }else if(num === 2){
                         if (datas[key].humidity[0] <= 10) {
                             var color = "#785046"
                             var rgba = "rgba(120, 80, 70,0.3)"
@@ -193,7 +193,7 @@ function mapDraw(num) {
                                 document.getElementById("site_chart").src = url
                             };
                         })(url));
-                    }else if(i === 3){
+                    }else if(num === 3){
                         if (datas[key].precipitation1h[0] <= 0.1) {
                             var color = "#785046"
                             var rgba = "rgba(120, 80, 70,0.3)"
