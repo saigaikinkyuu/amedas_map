@@ -94,16 +94,19 @@ function drawChart(datasets,kind) {
         var min = -20
         var type = "気温"
         var color = 'rgba(255, 99, 132, 1)'
+        var backcolor = 'rgba(255, 99, 132, 0.2)'
     }else if(kind === "2"){
         var max = 100
         var min = 0
         var type = "湿度"
         var color = 'rgba(0, 255, 255, 1)'
+        var backcolor = 'rgba(0, 255, 255, 0.2)'
     }else if(kind === "3"){
         var max = 140
         var min = 0
         var type = "降水量"
         var color = 'rgba(0, 0, 255, 1)'
+        var backcolor = 'rgba(0, 0, 255, 0.2)'
     }
 
     // グラフを描画する
@@ -115,7 +118,7 @@ function drawChart(datasets,kind) {
             datasets: [{
                 label: type, // ラベル
                 data: datasets, // Y軸の値
-                backgroundColor: 'rgba(255, 99, 132, 0.2)', // 塗りつぶし色
+                backgroundColor: backcolor, // 塗りつぶし色
                 borderColor: color, // 線の色
                 borderWidth: 1 // 線の幅
             }]
