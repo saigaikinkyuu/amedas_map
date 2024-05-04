@@ -21,7 +21,7 @@ for (var i = currentHour - 23; i <= currentHour; i++) {
                 currentMonth = 12;
             }
             // 月の日数を考慮して日付を調整
-            currentDay = new Date(currentYear, currentMonth, 0).getDate();
+            currentDay = ('0' + new Date(currentYear, currentMonth, 0).getDate()).slice(-2);
         }
     }
 
@@ -54,7 +54,7 @@ function drawChart(datasets) {
     for (var k = currentHour - 23; k <= currentHour; k++) {
         // 時刻が負になる場合、24時間を加算して正の値にする
         var hour = k < 0 ? k + 24 : k;
-        labels.push(hour + ':00'); // 時間をX軸のラベルとして追加
+        labels.push(('0' + hour).slice(-2) + ':00'); // 時間をX軸のラベルとして追加
     }
 
     // グラフを描画する
