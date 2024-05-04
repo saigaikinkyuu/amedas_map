@@ -55,7 +55,7 @@ function mapDraw(num) {
         }
 
         // AMeDAS データを読み込み、円を追加
-        $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/" + new Date().getFullYear() + ("0" + (new Date().getMonth() + 1)).slice(-2) + ("0" + new Date().getDate()).slice(-2) + ("0" + new Date().getHours()).slice(-2) + "0000.json", function (datas) {
+        $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + hour).slice(-2) + "" + min + "000.json", function (datas) {
             $.getJSON("https://www.jma.go.jp/bosai/amedas/const/amedastable.json", function (data) {
                 function formatDate(date) {
                     var year = date.getFullYear();
