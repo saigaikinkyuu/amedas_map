@@ -46,7 +46,7 @@ for (var i = currentHour - 23; n < 24; i++) {
     // 各JSONファイルからデータを取得する
     $.getJSON(filePath, function(data) {
         // 特定の地点の温度データのみを抽出
-        if(kind === 1){
+        if(kind === "1"){
           var temperatureData = data[pointNumber].temp[0];
 
           // データセットを追加する
@@ -56,7 +56,7 @@ for (var i = currentHour - 23; n < 24; i++) {
           if (datasets.length === 23) {
               drawChart(datasets,kind);
           }
-        }else  if(kind === 2){
+        }else  if(kind === "2"){
           var humidity = data[pointNumber].humidity[0];
 
           // データセットを追加する
@@ -66,7 +66,7 @@ for (var i = currentHour - 23; n < 24; i++) {
           if (datasets.length === 23) {
               drawChart(datasets,kind);
           }
-        }else  if(kind === 3){
+        }else  if(kind === "3"){
           var precipitation = data[pointNumber].precipitation1h[0];
 
           // データセットを追加する
