@@ -64,7 +64,7 @@ function drawChart(datasets) {
         data: {
             labels: labels, // X軸のラベル
             datasets: [{
-                label: '温度', // ラベル
+                label: '気温', // ラベル
                 data: datasets, // Y軸の値
                 backgroundColor: 'rgba(255, 99, 132, 0.2)', // 塗りつぶし色
                 borderColor: 'rgba(255, 99, 132, 1)', // 線の色
