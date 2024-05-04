@@ -124,7 +124,7 @@ function content(){
         }
         $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + hour).slice(-2) + "" + min + "000.json", function (datas) {
             var temp = datas[pointNumber].temp[0]
-            if(temp.includes('.') === true){
+            if(Number.isInteger(temp) === false){
                 var tempResult = ("0" + temp).slice(-4)
             }else{
                 if(temp.length === 1){
