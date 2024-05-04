@@ -94,7 +94,8 @@ function mapDraw(num) {
                         // マーカーをクリックした際の処理
                         marker.on('click', (function(url) {
                             return function(e) {
-                                window.open(url, '_blank'); // 新しいタブでURLを開く
+                                document.getElementById("chart").style.display = "block"
+                                document.getElementById("site_chart").src = url
                             };
                         })(url));
                     }
