@@ -123,7 +123,7 @@ function content(){
         }else {
             min = currentMin.slice(0,1)
         }
-        $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + hour).slice(-2) + "" + min + "000.json", function (datas) {
+        $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + currentHour).slice(-2) + "" + min + "000.json", function (datas) {
             var temp = datas[pointNumber].temp[0]
             if(Number.isInteger(temp) === false){
                 var tempResult = ("0" + temp).slice(-4)
