@@ -36,7 +36,8 @@ for (var i = currentHour - 23; n < 24; i++) {
 
     // 地点名（特定の地点番号）をURLから取得
     var hash = window.location.hash;
-    var pointNumber = hash.substring(1);
+    var pointNumber = ("" + hash.substring(1)).slice(0,5);
+    var kind = ("" + hash.substring(1)).slice(-1);
 
     // ファイルパスを構築
     var filePath = "https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + hour).slice(-2) + "0000.json";
@@ -44,26 +45,64 @@ for (var i = currentHour - 23; n < 24; i++) {
     // 各JSONファイルからデータを取得する
     $.getJSON(filePath, function(data) {
         // 特定の地点の温度データのみを抽出
-        var temperatureData = data[pointNumber].temp[0];
+        if(kind === 1){
+          var temperatureData = data[pointNumber].temp[0];
 
-        // データセットを追加する
-        datasets.push(temperatureData);
+          // データセットを追加する
+          datasets.push(temperatureData);
 
-        // 全てのデータを取得したら、グラフを描画する
-        if (datasets.length === 23) {
-            drawChart(datasets);
+          // 全てのデータを取得したら、グラフを描画する
+          if (datasets.length === 23) {
+              drawChart(datasets,kind);
+          }
+        }else  if(kind === 2){
+          var humidity = data[pointNumber].humidity[0];
+
+          // データセットを追加する
+          datasets.push(humidity);
+
+          // 全てのデータを取得したら、グラフを描画する
+          if (datasets.length === 23) {
+              drawChart(datasets,kind);
+          }
+        }else  if(kind === 3){
+          var precipitation = data[pointNumber].precipitation1h[0];
+
+          // データセットを追加する
+          datasets.push(precipitation);
+
+          // 全てのデータを取得したら、グラフを描画する
+          if (datasets.length === 23) {
+              drawChart(datasets,kind);
+          }
         }
     });
 }
 
 // グラフを描画する関数
-function drawChart(datasets) {
+function drawChart(datasets,kind) {
     // グラフ用のデータを準備する
     var labels = []; // X軸のラベル
     for (var k = currentHour - 23; k <= currentHour; k++) {
         // 時刻が負になる場合、24時間を加算して正の値にする
         var hour = k < 0 ? k + 24 : k;
         labels.push(hour + ':00'); // 時間をX軸のラベルとして追加
+    }
+    if(kind === 1){
+        var max = 40
+        var min = -20
+        var type = "気温"
+        var color = 'rgba(255, 99, 132, 1)'
+    }else if(kind === 2){
+        var max = 100
+        var min = 0
+        var type = "湿度"
+        var color = 'rgba(0, 255, 255, 1)'
+    }else if(kind === 3){
+        var max = 140
+        var min = 0
+        var type = "降水量"
+        var color = 'rgba(0, 0, 255, 1)'
     }
 
     // グラフを描画する
@@ -73,18 +112,18 @@ function drawChart(datasets) {
         data: {
             labels: labels, // X軸のラベル
             datasets: [{
-                label: '気温', // ラベル
+                label: type, // ラベル
                 data: datasets, // Y軸の値
                 backgroundColor: 'rgba(255, 99, 132, 0.2)', // 塗りつぶし色
-                borderColor: 'rgba(255, 99, 132, 1)', // 線の色
+                borderColor: color, // 線の色
                 borderWidth: 1 // 線の幅
             }]
         },
         options: {
             scales: {
                 y: {
-                    min: -20,
-                    max: 40
+                    min: min,
+                    max: max
                 }
             }
         }
@@ -93,7 +132,8 @@ function drawChart(datasets) {
 function content(){
     $.getJSON("https://www.jma.go.jp/bosai/amedas/const/amedastable.json", function (data) {
         var hash = window.location.hash;
-        var pointNumber = hash.substring(1);
+        var pointNumber = ("" + hash.substring(1)).slice(0,5);
+        var kind = ("" + hash.substring(1)).slice(-1);
         var namekj = data[pointNumber].kjName
         var namekn = data[pointNumber].knName
         document.getElementById("name").innerHTML = namekj + "(" + namekn + ")";
@@ -123,17 +163,27 @@ function content(){
             min = currentMin.slice(0,1)
         }
         $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + currentHour).slice(-2) + "" + min + "000.json", function (datas) {
-            var temp = datas[pointNumber].temp[0]
-            if(Number.isInteger(temp) === false){
-                var tempResult = ("0" + temp).slice(-4)
-            }else{
-                if(temp.length === 1){
-                    temp = "0" + temp + ".0"
-                }else {
-                    temp = temp + ".0"
-                }
+            if(kind === 1){
+              var temp = datas[pointNumber].temp[0]
+              if(Number.isInteger(temp) === false){
+                  var tempResult = ("0" + temp).slice(-4)
+              }else{
+                  if(temp.length === 1){
+                      temp = "0" + temp + ".0"
+                  }else {
+                      temp = temp + ".0"
+                  }
+              }
+              document.getElementById("temp").innerHTML = ("0" + hour).slice(-2) + "時" + min + "0分時点　" + temp + "℃"
+            }else if(kind === 2){
+              var temp = datas[pointNumber].humidity[0]
+              if(temp.length === 1){
+                  temp = ("0" + temp).slice(-2)
+              document.getElementById("temp").innerHTML = ("0" + hour).slice(-2) + "時" + min + "0分時点　" + temp + "%"
+            }else if(kind === 3){
+              var temp = datas[pointNumber].precipitation1h[0]
+              document.getElementById("temp").innerHTML = ("0" + hour).slice(-2) + "時" + min + "0分時点　" + temp + "mm"
             }
-            document.getElementById("temp").innerHTML = ("0" + hour).slice(-2) + "時" + min + "0分時点　" + temp + "℃"
         })
     })
 }
