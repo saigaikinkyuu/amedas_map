@@ -2,11 +2,13 @@ var map;
 
 function mapDraw(num) {
     map = L.map('map', {
-        zoomControl: false
+        zoomControl: false,
+        minZoom: 7, // 最低ズームレベルを4に設定
+        maxZoom: 9 // 最大ズームレベルを7に設定
     });
 
     var initialLatLng = L.latLng("35.39", "139.44");
-    map.setView(initialLatLng, 5);
+    map.setView(initialLatLng, 7);
 
     L.control.scale({
         maxWidth: 150,
