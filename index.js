@@ -14,26 +14,6 @@ function mapDraw(num) {
         imperial: false
     }).addTo(map);
 
-    var PolygonLayer_Style_nerv = {
-        "color": "#ffffff",
-        "weight": 1.5,
-        "opacity": 1,
-        "fillColor": "#3a3a3a",
-        "fillOpacity": 1
-    }
-
-
-    // 新しいレイヤーグループを作成
-    var circleLayer = L.layerGroup().addTo(map);
-
-    // geoJSONデータを読み込んで地図に追加
-    $.getJSON("./prefectures.geojson", function (data) {
-        L.geoJson(data, {
-            style: PolygonLayer_Style_nerv
-        }).addTo(map);
-    });
-
-    // AMeDASデータを読み込んで円を作成してレイヤーに追加
     $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/" + new Date().getFullYear() + ("0" + (new Date().getMonth() + 1)).slice(-2) + ("0" + new Date().getDate()).slice(-2) + ("0" + new Date().getHours()).slice(-2) + "0000.json", function (datas) {
         $.getJSON("https://www.jma.go.jp/bosai/amedas/const/amedastable.json", function (data) {
             function formatDate(date) {
@@ -81,7 +61,8 @@ function mapDraw(num) {
                         color: color,
                         fillColor: rgba,
                         fillOpacity: 1
-                    }).addTo(circleLayer);
+                    }).addTo(map);
+                    // 地図にマーカーを追加
                     marker.bindPopup(data[key].kjName + "(" + data[key].knName + ")<br>" + datas[key].temp[0], {
                         closeButton: false,
                         zIndexOffset: 10000,
@@ -96,8 +77,10 @@ function mapDraw(num) {
                 }
             }
         });
-
     });
+
+    // GeoJSON ファイルを地図タイルとして読み込む
+    L.tileLayer('./prefectures/{z}/{x}/{y}.geojson').addTo(map);
 }
 
 function changeMap(i) {
