@@ -48,7 +48,7 @@ for (var i = currentHour - 23; n < 24; i++) {
         datasets.push(temperatureData);
 
         // 全てのデータを取得したら、グラフを描画する
-        if (datasets.length === 12) {
+        if (datasets.length === 23) {
             drawChart(datasets);
         }
     });
