@@ -1,4 +1,4 @@
-//2024.05.04 13:35
+//2024.05.04 13:37
 // 現在時刻の取得
 var currentTime = new Date();
 var currentHour = currentTime.getHours();
