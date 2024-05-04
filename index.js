@@ -35,7 +35,6 @@ function mapDraw(num) {
         var currentMonth = ('0' + (currentTime.getMonth() + 1)).slice(-2);
         var currentDay = ('0' + currentTime.getDate()).slice(-2);
         var min = 0
-        var hour = 0
         if(currentMin.slice(0,1) === 0 || currentMin.slice(1,2) <= 5){
             currentHour -= 1
             min = currentMin.slice(0,1)-1
@@ -56,7 +55,7 @@ function mapDraw(num) {
         }
 
         // AMeDAS データを読み込み、円を追加
-        $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + hour).slice(-2) + "" + min + "000.json", function (datas) {
+        $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + currentHour).slice(-2) + "" + min + "000.json", function (datas) {
             $.getJSON("https://www.jma.go.jp/bosai/amedas/const/amedastable.json", function (data) {
                 function formatDate(date) {
                     var year = date.getFullYear();
