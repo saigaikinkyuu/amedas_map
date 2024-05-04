@@ -106,7 +106,7 @@ function content(){
         var min = 0
         if(currentMin.slice(0,1) === 0 || currentMin.slice(1,2) <= 5){
             currentHour -= 1
-            min = currentMin.slice(0,1)-1
+            min = parseInt(currentMin.slice(0,1))-1
             if(currentHour < 0){
                 currentHour += 23
                 currentDay -= 1
