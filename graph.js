@@ -179,6 +179,7 @@ function content(){
               var temp = datas[pointNumber].humidity[0]
               if(temp.length === 1){
                   temp = ("0" + temp).slice(-2)
+              }
               document.getElementById("temp").innerHTML = ("0" + hour).slice(-2) + "時" + min + "0分時点　" + temp + "%"
             }else if(kind === 3){
               var temp = datas[pointNumber].precipitation1h[0]
