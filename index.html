@@ -39,17 +39,18 @@
             color: white;
         }
         #setting_MAP a{
-            border: 4px solid #00068d;
             text-decoration: none;
             width: fit-content;
             padding: 5px;
         }
         .on{
-            background-color: #00068d;
-            color: white;
+            background-color: #ffffffc2;
+            color: black;
+            border: 4px solid #ffffff;
         }
         .off{
-            color: #00068d;
+            border: 4px solid #ffffff;
+            color: #ffffff;
         }  
     </style>
     <div id="map"></div>
@@ -58,7 +59,7 @@
     </div>
     <div id="setting_MAP" style="position: absolute;z-index: 10000;bottom: 0px;background-color: white;height: 60px;">
         <div style="display: flex;padding-top: 10px;">
-    <lavel style="line-height: 40px;">種類：</lavel><a id="histryON" class="on" data-swich="on" href="#" style="border-radius: 5px;margin-right: 10px;">表示</a><a id="histryOFF" class="off" data-swich="off" href="#" style="border-radius: 5px;">非表示</a><lavel style="line-height: 40px;margin-left: 10px;">地震履歴：</lavel><a id="infoON" class="on" data-swich="on" href="#" style="border-radius: 5px;margin-right: 10px;">表示</a><a id="infoOFF" class="off" data-swich="off" href="#" style="border-radius: 5px;">非表示</a><lavel style="line-height: 40px;margin-left: 10px;">画像：</lavel><a id="takePicture" href="#" style="border-radius: 5px;color:#00068d;margin-right: 10px;">撮影</a><a id="screenshot"　target="_blank" style="border-radius: 5px;color:#00068d;">ダウンロード</a>
+    <lavel style="line-height: 40px;">種類：</lavel><a id="temp" class="on" data-swich="on" href="#" style="border-radius: 5px;margin-right: 10px;">気温</a><a id="humid" class="off" data-swich="off" href="#" style="border-radius: 5px;margin-right: 10px;">湿度</a><a id="puressure" class="off" data-swich="off" href="#" style="border-radius: 5px;">気圧</a><lavel style="line-height: 40px;margin-left: 10px;">自動更新：</lavel><a id="autoON" class="on" data-swich="on" href="#" style="border-radius: 5px;margin-right: 10px;">オン</a><a id="autoOFF" class="off" data-swich="off" href="#" style="border-radius: 5px;">オフ</a>
         </div>
     </div>
     <div id="chart" style="display: none;width: 100%;height: 716px;background-color: #000000a8;z-index: 1000;position: absolute;top: 0px;" onclick="hideContent()">
