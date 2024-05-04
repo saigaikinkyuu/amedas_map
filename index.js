@@ -69,7 +69,7 @@ function mapDraw(num) {
                         }
                         var markerL = new L.LatLng(latitude, longitude);
                         var marker = L.circleMarker(markerL, {
-                            radius: 3,
+                            radius: 6,
                             color: color,
                             fillColor: rgba,
                             fillOpacity: 1
