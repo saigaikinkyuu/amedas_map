@@ -35,7 +35,7 @@ function mapDraw(num) {
         var currentMonth = ('0' + (currentTime.getMonth() + 1)).slice(-2);
         var currentDay = ('0' + currentTime.getDate()).slice(-2);
         var min = 0
-        if(currentMin.slice(0,1) === 0 || currentMin.slice(1,2) <= 5){
+        if(currentMin.slice(0,1) === 0 || currentMin.slice(1,2) <= 7){
             currentHour -= 1
             min = currentMin.slice(0,1)-1
             if(min < 0){
