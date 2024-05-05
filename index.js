@@ -260,7 +260,7 @@ function mapDraw(num) {
     });
 }
 
-function changeMap(i) {
+export function changeMap(i) {
     map.remove();
     mapDraw(i);
 }
