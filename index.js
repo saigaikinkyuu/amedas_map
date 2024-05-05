@@ -281,6 +281,12 @@ function mapDraw(num) {
                             var rgba = "rgba(170,0,199,0.3)"
                         }
                         document.getElementById("inputHanrei1_8").value = "〜" + (document.getElementById("inputHanrei1_7").value).substr(0, (document.getElementById("inputHanrei1_7").value).indexOf('〜'))
+                        console.log(Number((document.getElementById("inputHanrei1_2").value).substr(0, (document.getElementById("inputHanrei1_2").value).indexOf('〜'))))
+                        console.log(Number((document.getElementById("inputHanrei1_3").value).substr(0, (document.getElementById("inputHanrei1_3").value).indexOf('〜'))))
+                        console.log(Number((document.getElementById("inputHanrei1_4").value).substr(0, (document.getElementById("inputHanrei1_4").value).indexOf('〜'))))
+                        console.log(Number((document.getElementById("inputHanrei1_5").value).substr(0, (document.getElementById("inputHanrei1_5").value).indexOf('〜'))))
+                        console.log(Number((document.getElementById("inputHanrei1_6").value).substr(0, (document.getElementById("inputHanrei1_6").value).indexOf('〜'))))
+                        console.log(Number((document.getElementById("inputHanrei1_7").value).substr(0, (document.getElementById("inputHanrei1_7").value).indexOf('〜'))))
                         var markerL = new L.LatLng(latitude, longitude);
                         var marker = L.circleMarker(markerL, {
                             radius: 6,
