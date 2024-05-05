@@ -290,7 +290,9 @@
             if(i === 0){
                 console.log("B")
                 console.log(time)
-                intervalId = setInterval(changeMap(kind), time);
+                intervalId = setInterval(function() {
+                    changeMap(kind);
+                }, time);
             }else {
                 console.log("C-2")
                 clearInterval(intervalId);
