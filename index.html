@@ -66,31 +66,32 @@
     </div>
     <div id="setting_MAP" style="position: absolute;z-index: 10000;bottom: 0px;height: 60px;">
         <div style="display: flex;padding-top: 10px;">
-    <lavel style="line-height: 40px;color: white;">種類：</lavel><a id="temp" class="on" data-swich="on" href="#" style="border-radius: 5px;margin-right: 10px;">気温</a><a id="humid" class="off" data-swich="off" href="#" style="border-radius: 5px;margin-right: 10px;">湿度</a><a id="puressure" class="off" data-swich="off" href="#" style="border-radius: 5px;">降水量</a><lavel style="line-height: 40px;margin-left: 10px;color: white;">自動更新：</lavel><a id="autoON" class="on" data-swich="on" href="#" style="border-radius: 5px;margin-right: 10px;"><input id="minutes" type="number" value="10" min="5" max="50" style="border-bottom: 3px solid white;border-left: 0px;border-right: 0px;border-top: 0px;background-color: rgba(255, 255, 255, 0);padding: 0px;margin: 0px;font-size: 17px;"><span id="buttonAuto">分ごと</span></a><a id="autoOFF" class="off" data-swich="off" href="#" style="border-radius: 5px;">オフ</a>
+    <lavel style="line-height: 40px;color: white;">種類：</lavel><a id="temp" class="on" data-swich="on" href="#" style="border-radius: 5px;margin-right: 10px;">気温</a><a id="humid" class="off" data-swich="off" href="#" style="border-radius: 5px;margin-right: 10px;">湿度</a><a id="puressure" class="off" data-swich="off" href="#" style="border-radius: 5px;">降水量</a><lavel style="line-height: 40px;margin-left: 10px;color: white;">自動更新：</lavel><a id="autoON" class="on" data-swich="on" href="#" style="border-radius: 5px;margin-right: 10px;"><input id="minutes" type="number" value="10" min="5" max="50" style="color: white; text-align: right;border-bottom: 3px solid white;border-left: 0px;border-right: 0px;border-top: 0px;background-color: rgba(255, 255, 255, 0);padding: 0px;margin: 0px;font-size: 17px;"><span id="buttonAuto">分ごと</span></a><a id="autoOFF" class="off" data-swich="off" href="#" style="border-radius: 5px;">オフ</a><lavel style="line-height: 40px;margin-left: 10px;color: white;">凡例：</lavel><a id="updateHanrei" class="off" data-swich="off" href="#" style="border-radius: 5px;">更新</a>
         </div>
     </div>
     <div id="chart" style="background-color: rgba(0, 0, 0, 0.71);display: none;width: 100%;height: 716px;z-index: 1000;position: absolute;top: 0px;" onclick="hideContent()">
         <iframe id="site_chart" src="" style="background-color: white;margin-left: 23%;margin-top: 115px;width: 800px;height: 445px;"></iframe>
     </div>
     <div id="hanrei1" style="background-color: rgba(0, 0, 0, 0.71);font-size: 20px;width: 110px;height: 250px;z-index: 1000;position: absolute;top: 120px;color: white;">
-        <div style="display: flex;margin-top: 10px;"><span style="height: 20px;width: 20px;background-color: #b902b9;display: block;" id="hanrei"></span>25〜℃
+        <div style="display: flex;margin-top: 10px;">
+            <span style="height: 20px;width: 20px;background-color: #b902b9;display: block;" id="hanrei"></span><input type="text" style="width: 40px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;"><span>℃</span>
       </div>
-        <div style="display: flex;"><span id="hanrei" style="background-color: red;"></span>20〜25
+        <div style="display: flex;"><span id="hanrei" style="background-color: red;"></span><input id="inputHanrei1_1" type="text" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
       </div>
-        <div style="display: flex;"><span id="hanrei" style="background-color: orange;"></span>15〜20
+        <div style="display: flex;"><span id="hanrei" style="background-color: orange;"></span><input type="text" id="inputHanrei1_2" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
       </div>
-        <div style="display: flex;"><span id="hanrei" style="background-color: yellow;"></span>10〜15
+        <div style="display: flex;"><span id="hanrei" style="background-color: yellow;"></span><input type="text" id="inputHanrei1_3" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
       </div>
-        <div style="display: flex;"><span id="hanrei" style="background-color: #00c300;"></span>5〜10
+        <div style="display: flex;"><span id="hanrei" style="background-color: #00c300;"></span><input type="text" id="inputHanrei1_4" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
       </div>
-        <div style="display: flex;"><span id="hanrei" style="background-color: #00a5e8;"></span>0〜5
+        <div style="display: flex;"><span id="hanrei" style="background-color: #00a5e8;"></span><input type="text" id="inputHanrei1_5" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
       </div>
-        <div style="display: flex;"><span id="hanrei" style="background-color: blue;"></span>-5〜0
+        <div style="display: flex;"><span id="hanrei" style="background-color: blue;"></span><input type="text" id="inputHanrei1_6" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
       </div>
-        <div style="display: flex;"><span id="hanrei" style="background-color: gray;"></span>〜-5
+        <div style="display: flex;"><span id="hanrei" style="background-color: gray;"></span><input type="text" id="inputHanrei1_7" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
       </div>
     </div>
-    <div id="hanrei2" style="display: noen;background-color: rgba(0, 0, 0, 0.71);font-size: 20px;width: 110px;height: 310px;z-index: 1000;position: absolute;top: 120px;color: white;">
+    <div id="hanrei2" style="display: none;background-color: rgba(0, 0, 0, 0.71);font-size: 20px;width: 110px;height: 310px;z-index: 1000;position: absolute;top: 120px;color: white;">
         <div style="display: flex;margin-top: 10px;">
             <span style="height: 20px;width: 20px;background-color: #b902b9;display: block;" id="hanrei"></span>90〜100%
         </div>
@@ -122,7 +123,7 @@
             <span id="hanrei" style="background-color: #5b2e00;"></span>0〜10
         </div>
     </div>
-    <div id="hanrei3" style="display: noen;background-color: rgba(0, 0, 0, 0.71);font-size: 20px;width: 110px;height: 310px;z-index: 1000;position: absolute;top: 120px;color: white;">
+    <div id="hanrei3" style="display: none;background-color: rgba(0, 0, 0, 0.71);font-size: 20px;width: 110px;height: 310px;z-index: 1000;position: absolute;top: 120px;color: white;">
         <div style="display: flex;margin-top: 10px;">
             <span style="height: 20px;width: 20px;background-color: #b902b9;display: block;" id="hanrei"></span>100〜mm
         </div>
@@ -286,6 +287,10 @@
             element2.classList.toggle('off');
             update(1,"None","None")
         }
+    });
+    document.getElementById("upDateHanrei").addEventListener("click", function(event) {
+        event.preventDefault(); // デフォルトのクリック動作を無効化
+        changeMap(4)
     });
         function hideContent(){
             document.getElementById("chart").style.display = "none"
