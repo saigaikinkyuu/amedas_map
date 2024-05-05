@@ -66,7 +66,7 @@
     </div>
     <div id="setting_MAP" style="position: absolute;z-index: 10000;bottom: 0px;height: 60px;">
         <div style="display: flex;padding-top: 10px;">
-    <lavel style="line-height: 40px;color: white;">種類：</lavel><a id="temp" class="on" data-swich="on" href="#" style="border-radius: 5px;margin-right: 10px;">気温</a><a id="humid" class="off" data-swich="off" href="#" style="border-radius: 5px;margin-right: 10px;">湿度</a><a id="puressure" class="off" data-swich="off" href="#" style="border-radius: 5px;">降水量</a><lavel style="line-height: 40px;margin-left: 10px;color: white;">自動更新：</lavel><a id="autoON" class="on" data-swich="on" href="#" style="border-radius: 5px;margin-right: 10px;"><input id="minutes" type="number" value="10" min="5" max="50" style="color: white; text-align: right;border-bottom: 3px solid white;border-left: 0px;border-right: 0px;border-top: 0px;background-color: rgba(255, 255, 255, 0);padding: 0px;margin: 0px;font-size: 17px;"><span id="buttonAuto">分ごと</span></a><a id="autoOFF" class="off" data-swich="off" href="#" style="border-radius: 5px;">オフ</a><lavel style="line-height: 40px;margin-left: 10px;color: white;">凡例：</lavel><a id="updateHanrei" class="off" data-swich="off" href="#" style="border-radius: 5px;">更新</a>
+    <lavel style="line-height: 40px;color: white;">種類：</lavel><a id="temp" class="on" data-swich="on" href="#" style="border-radius: 5px;margin-right: 10px;">気温</a><a id="humid" class="off" data-swich="off" href="#" style="border-radius: 5px;margin-right: 10px;">湿度</a><a id="puressure" class="off" data-swich="off" href="#" style="border-radius: 5px;">降水量</a><lavel style="line-height: 40px;margin-left: 10px;color: white;">自動更新：</lavel><a id="autoON" class="on" data-swich="on" href="#" style="border-radius: 5px;margin-right: 10px;"><input id="minutes" type="number" value="10" min="5" max="50" style="color: white; text-align: right;border-bottom: 3px solid white;border-left: 0px;border-right: 0px;border-top: 0px;background-color: rgba(255, 255, 255, 0);padding: 0px;margin: 0px;font-size: 17px;"><span id="buttonAuto">分ごと</span></a><a id="autoOFF" class="off" data-swich="off" href="#" style="border-radius: 5px;">オフ</a><lavel style="line-height: 40px;margin-left: 10px;color: white;">凡例：</lavel><a id="updateHanrei" class="off" data-swich="off" href="#" style="border-radius: 5px;">更新</a><a id="upDateEvery" class="off" data-swich="off" href="#" style="border-radius: 5px;margin-left: 10px;"><input id="everyInput" type="number" value="5" min="5" max="20" style="color: white; text-align: right;border-bottom: 3px solid white;border-left: 0px;border-right: 0px;border-top: 0px;background-color: rgba(255, 255, 255, 0);padding: 0px;margin: 0px;font-size: 17px;"><span id="everyValue">ごと</span></a>
         </div>
     </div>
     <div id="chart" style="background-color: rgba(0, 0, 0, 0.71);display: none;width: 100%;height: 716px;z-index: 1000;position: absolute;top: 0px;" onclick="hideContent()">
@@ -76,17 +76,17 @@
         <div style="display: flex;margin-top: 10px;">
             <span style="height: 20px;width: 20px;background-color: #b902b9;display: block;" id="hanrei"></span><input id="inputHanrei1_1" type="text" style="width: 40px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;"><span>℃</span>
       </div>
-        <div style="display: flex;"><span id="hanrei" style="background-color: red;"></span><input id="inputHanrei1_2" type="text" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
+        <div style="display: flex;"><span id="hanrei" style="background-color: red;"></span><input disabled id="inputHanrei1_2" type="text" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
       </div>
-        <div style="display: flex;"><span id="hanrei" style="background-color: orange;"></span><input type="text" id="inputHanrei1_3" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
+        <div style="display: flex;"><span id="hanrei" style="background-color: orange;"></span><input disabled type="text" id="inputHanrei1_3" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
       </div>
-        <div style="display: flex;"><span id="hanrei" style="background-color: yellow;"></span><input type="text" id="inputHanrei1_4" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
+        <div style="display: flex;"><span id="hanrei" style="background-color: yellow;"></span><input disabled type="text" id="inputHanrei1_4" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
       </div>
-        <div style="display: flex;"><span id="hanrei" style="background-color: #00c300;"></span><input type="text" id="inputHanrei1_5" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
+        <div style="display: flex;"><span id="hanrei" style="background-color: #00c300;"></span><input disabled type="text" id="inputHanrei1_5" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
       </div>
-        <div style="display: flex;"><span id="hanrei" style="background-color: #00a5e8;"></span><input type="text" id="inputHanrei1_6" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
+        <div style="display: flex;"><span id="hanrei" style="background-color: #00a5e8;"></span><input disabled type="text" id="inputHanrei1_6" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
       </div>
-        <div style="display: flex;"><span id="hanrei" style="background-color: blue;"></span><input type="text" id="inputHanrei1_7" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
+        <div style="display: flex;"><span id="hanrei" style="background-color: blue;"></span><input disabled type="text" id="inputHanrei1_7" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
       </div>
         <div style="display: flex;"><span id="hanrei" style="background-color: gray;"></span><input disabled type="text" id="inputHanrei1_8" style="width: 60px;height: 17px;margin-top: 5.5px;background-color: rgba(225,225,225,0);border: 0px;color: white;font-size: 20px;">
       </div>
@@ -292,6 +292,14 @@
         event.preventDefault(); // デフォルトのクリック動作を無効化
         changeMap(4)
     });
+    document.getElementById("everyValue").addEventListener("click", function(event) {
+        event.preventDefault(); // デフォルトのクリック動作を無効化
+        var every = document.getElementById("everyInput").value
+        var input7 = Number((document.getElementById("inputHanrei1_7").value).substr(0, (document.getElementById("inputHanrei1_7").value).indexOf('〜')))
+        for(var v = 0;v < 6;v++){
+            document.getElementById("inputHanrei1_" + (v + 2)).value = Number((document.getElementById("inputHanrei1_1").value).substr(0, (document.getElementById("inputHanrei1_1").value).indexOf('〜'))) - ((v+1)*every) + "〜" + Number((document.getElementById("inputHanrei1_1").value).substr(0, (document.getElementById("inputHanrei1_1").value).indexOf('〜'))) - ((v+2)*every)
+        }
+    });
         function hideContent(){
             document.getElementById("chart").style.display = "none"
             document.getElementById("site_chart").src = "#"
@@ -299,13 +307,11 @@
 
         function update(i,time,kind){
             if(i === 0){
-                console.log("B")
                 console.log(time)
                 intervalId = setInterval(function() {
                     changeMap(kind);
                 }, time);
             }else {
-                console.log("C-2")
                 clearInterval(intervalId);
             }
         }
