@@ -253,6 +253,60 @@ function mapDraw(num) {
                                 document.getElementById("site_chart").src = url
                             };
                         })(url));
+                    }else if (datas[key].temp && num === 4) {
+                        //ここまで作業終了
+                        if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1-7")).replace("〜",""))) {
+                            var color = "#969696"
+                            var rgba = "rgba(150, 150, 150,0.3)"
+                        } else if (datas[key].temp[0] <= 0) {
+                            var color = "blue"
+                            var rgba = "rgba(000,000,200,0.3)"
+                        } else if (datas[key].temp[0] <= 5) {
+                            var color = "#0096c8"
+                            var rgba = "rgba(0, 150, 200,0.3)"
+                        } else if (datas[key].temp[0] <= 10) {
+                            var color = "#00c800"
+                            var rgba = "rgba(0, 200, 0 ,0.3)"
+                        } else if (datas[key].temp[0] <= 15) {
+                            var color = "yellow"
+                            var rgba = "rgba(255,255,0,0.3)"
+                        } else if (datas[key].temp[0] <= 20) {
+                            var color = "orange"
+                            var rgba = "rgba(255,165,0,0.3)"
+                        } else if (datas[key].temp[0] <= 25) {
+                            var color = "red"
+                            var rgba = "rgba(255,0,0,0.3)"
+                        } else {
+                            var color = "purple"
+                            var rgba = "rgba(170,0,199,0.3)"
+                        }
+                        var markerL = new L.LatLng(latitude, longitude);
+                        var marker = L.circleMarker(markerL, {
+                            radius: 6,
+                            color: color,
+                            fillColor: rgba,
+                            fillOpacity: 1
+                        }).addTo(map);
+                        // 地図にマーカーを追加
+                        marker.bindPopup("<div style='text-align: center;'>"+data[key].kjName + "(" + data[key].knName + ")<br>" + datas[key].temp[0]+"℃</div>", {
+                            closeButton: false,
+                            zIndexOffset: 10000,
+                            maxWidth: 10000
+                        });
+                        marker.on('mouseover', function (e) {
+                            this.openPopup();
+                        });
+                        marker.on('mouseout', function (e) {
+                            this.closePopup();
+                        });
+                        var url = "https://amedas.jkisyou.com/graph.html#" + key + "" + 1
+                        // マーカーをクリックした際の処理
+                        marker.on('click', (function(url) {
+                            return function(e) {
+                                document.getElementById("chart").style.display = "block"
+                                document.getElementById("site_chart").src = url
+                            };
+                        })(url));
                     }
                 }
             });
