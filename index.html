@@ -295,6 +295,13 @@
     document.getElementById("everyValue").addEventListener("click", function(event) {
         event.preventDefault(); // デフォルトのクリック動作を無効化
         var every = document.getElementById("everyInput").value
+        if(every < 5){
+            every = 5
+            document.getElementById("everyInput").value = 5
+        }else if(every > 20){
+            every = 20
+            document.getElementById("everyInput").value = 20
+        }
         var input7 = Number((document.getElementById("inputHanrei1_7").value).substr(0, (document.getElementById("inputHanrei1_7").value).indexOf('〜')))
         for(var v = 0;v < 6;v++){
             document.getElementById("inputHanrei1_" + (v + 2)).value = (Number((document.getElementById("inputHanrei1_1").value).substr(0, (document.getElementById("inputHanrei1_1").value).indexOf('〜'))) - ((v+1)*every)) + "〜" + (Number((document.getElementById("inputHanrei1_1").value).substr(0, (document.getElementById("inputHanrei1_1").value).indexOf('〜'))) - (v*every))
