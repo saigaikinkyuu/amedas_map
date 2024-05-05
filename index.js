@@ -280,7 +280,7 @@ function mapDraw(num) {
                             var color = "purple"
                             var rgba = "rgba(170,0,199,0.3)"
                         }
-                        document.getElementById("inputHanrei1_8").value = "〜" + (document.getElementById("inputHanrei1_7")).substr(0, (document.getElementById("inputHanrei1_7")).indexOf('〜'))
+                        document.getElementById("inputHanrei1_8").value = "〜" + (document.getElementById("inputHanrei1_7").value).substr(0, (document.getElementById("inputHanrei1_7").value).indexOf('〜'))
                         var markerL = new L.LatLng(latitude, longitude);
                         var marker = L.circleMarker(markerL, {
                             radius: 6,
