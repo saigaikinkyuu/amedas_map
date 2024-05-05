@@ -90,7 +90,7 @@
         <div style="display: flex;"><span id="hanrei" style="background-color: gray;"></span>〜-5
       </div>
     </div>
-    <div id="hanrei2" style="background-color: rgba(0, 0, 0, 0.71);font-size: 20px;width: 110px;height: 310px;z-index: 1000;position: absolute;top: 120px;color: white;">
+    <div id="hanrei2" style="display: noen;background-color: rgba(0, 0, 0, 0.71);font-size: 20px;width: 110px;height: 310px;z-index: 1000;position: absolute;top: 120px;color: white;">
         <div style="display: flex;margin-top: 10px;">
             <span style="height: 20px;width: 20px;background-color: #b902b9;display: block;" id="hanrei"></span>90〜100%
         </div>
@@ -122,7 +122,7 @@
             <span id="hanrei" style="background-color: #5b2e00;"></span>0〜10
         </div>
     </div>
-    <div id="hanrei3" style="background-color: rgba(0, 0, 0, 0.71);font-size: 20px;width: 110px;height: 310px;z-index: 1000;position: absolute;top: 120px;color: white;">
+    <div id="hanrei3" style="display: noen;background-color: rgba(0, 0, 0, 0.71);font-size: 20px;width: 110px;height: 310px;z-index: 1000;position: absolute;top: 120px;color: white;">
         <div style="display: flex;margin-top: 10px;">
             <span style="height: 20px;width: 20px;background-color: #b902b9;display: block;" id="hanrei"></span>100〜mm
         </div>
@@ -261,6 +261,7 @@
             }else if(kind3.className === "on"){
                 var kind = 2
             }
+            console.log("A")
             update(0,minutes*60*1000,kind)
         }
     });
@@ -287,6 +288,7 @@
 
         function update(i,time,kind){
             if(i === 0){
+                console.log("B")
                 intervalId = setInterval(changeMap(kind), time);
             }else {
                 clearInterval(intervalId);
