@@ -188,9 +188,8 @@
         }
 
         function update(i,time,kind){
-            import { chengeMap } from './index.js';
             if(i === 0){
-                intervalId = setInterval(chengeMap(kind), time);
+                intervalId = setInterval(changeMap(kind), time);
             }else {
                 clearInterval(intervalId);
             }
