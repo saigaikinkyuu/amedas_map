@@ -255,25 +255,25 @@ function mapDraw(num) {
                         })(url));
                     }else if (datas[key].temp && num === 4) {
                         //ここまで作業終了
-                        if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1_1")).substr(0, (document.getElementById("inputHanrei1_1")).indexOf('〜')))) {
+                        if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1_1").value).substr(0, (document.getElementById("inputHanrei1_1").value).indexOf('〜')))) {
                             var color = "#969696"
                             var rgba = "rgba(150, 150, 150,0.3)"
-                        } else if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1_2")).substr(0, (document.getElementById("inputHanrei1_2")).indexOf('〜')))) {
+                        } else if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1_2").value).substr(0, (document.getElementById("inputHanrei1_2").value).indexOf('〜')))) {
                             var color = "blue"
                             var rgba = "rgba(000,000,200,0.3)"
-                        } else if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1_3")).substr(0, (document.getElementById("inputHanrei1_3")).indexOf('〜')))) {
+                        } else if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1_3").value).substr(0, (document.getElementById("inputHanrei1_3").value).indexOf('〜')))) {
                             var color = "#0096c8"
                             var rgba = "rgba(0, 150, 200,0.3)"
-                        } else if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1_4")).substr(0, (document.getElementById("inputHanrei1_4")).indexOf('〜')))) {
+                        } else if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1_4").value).substr(0, (document.getElementById("inputHanrei1_4").value).indexOf('〜')))) {
                             var color = "#00c800"
                             var rgba = "rgba(0, 200, 0 ,0.3)"
-                        } else if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1_5")).substr(0, (document.getElementById("inputHanrei1_5")).indexOf('〜')))) {
+                        } else if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1_5").value).substr(0, (document.getElementById("inputHanrei1_5").value).indexOf('〜')))) {
                             var color = "yellow"
                             var rgba = "rgba(255,255,0,0.3)"
-                        } else if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1_6")).substr(0, (document.getElementById("inputHanrei1_6")).indexOf('〜')))) {
+                        } else if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1_6").value).substr(0, (document.getElementById("inputHanrei1_6").value).indexOf('〜')))) {
                             var color = "orange"
                             var rgba = "rgba(255,165,0,0.3)"
-                        } else if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1_7")).substr(0, (document.getElementById("inputHanrei1_7")).indexOf('〜')))) {
+                        } else if (datas[key].temp[0] <= Number((document.getElementById("inputHanrei1_7").value).substr(0, (document.getElementById("inputHanrei1_7").value).indexOf('〜')))) {
                             var color = "red"
                             var rgba = "rgba(255,0,0,0.3)"
                         } else {
