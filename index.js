@@ -27,6 +27,10 @@ function mapDraw(num) {
                 "fillOpacity": 1
             }
         }).addTo(map);
+        L.tileLayer(
+                'https://www.jma.go.jp/bosai/himawari/data/nowc/20240528123000/none/20240528123500/surf/hrpns/{z}/{x}/{y}.png', {
+                maxZoom: 9
+            }).addTo(map);
         
         var currentTime = new Date();
         var currentMin = ('0' + currentTime.getMinutes()).slice(-2);
