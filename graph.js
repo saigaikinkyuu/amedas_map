@@ -52,7 +52,6 @@ for (var i = currentHour - 23; n < 24; i++) {
 
           // データセットを追加する
           datasets.push([hour,temperatureData]);
-          console.log(datasets)
 
           // 全てのデータを取得したら、グラフを描画する
           if (datasets.length === 24) {
@@ -64,14 +63,13 @@ for (var i = currentHour - 23; n < 24; i++) {
               let belowThreshold = datasets.filter(item => item[0] < threshold).sort((a, b) => a[0] - b[0]);
               // ソート済み配列を結合
               let sortedArray = aboveThreshold.concat(belowThreshold);
-              console.log(sortedArray)
               drawChart(sortedArray,kind);
           }
         }else  if(kind === "2"){
           var humidity = data[pointNumber].humidity[0];
 
           // データセットを追加する
-          datasets.push(humidity);
+          datasets.push([hour,humidity]);
 
           // 全てのデータを取得したら、グラフを描画する
           if (datasets.length === 24) {
@@ -90,7 +88,7 @@ for (var i = currentHour - 23; n < 24; i++) {
           var precipitation = data[pointNumber].precipitation1h[0];
 
           // データセットを追加する
-          datasets.push(precipitation);
+          datasets.push([hour,precipitation]);
 
           // 全てのデータを取得したら、グラフを描画する
           if (datasets.length === 24) {
