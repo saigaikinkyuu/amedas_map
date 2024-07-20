@@ -64,6 +64,7 @@ for (var i = currentHour - 23; n < 24; i++) {
               let belowThreshold = datasets.filter(item => item[0] < threshold).sort((a, b) => a[0] - b[0]);
               // ソート済み配列を結合
               let sortedArray = aboveThreshold.concat(belowThreshold);
+              console.log(sortedArray)
               drawChart(sortedArray,kind);
           }
         }else  if(kind === "2"){
