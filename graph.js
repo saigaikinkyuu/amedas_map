@@ -51,6 +51,7 @@ for (var i = currentHour - 23; n < 24; i++) {
 
           // データセットを追加する
           datasets.push(temperatureData);
+          console.log(hour + "," + datasets)
 
           // 全てのデータを取得したら、グラフを描画する
           if (datasets.length === 24) {
