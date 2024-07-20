@@ -39,12 +39,14 @@ for (var i = currentHour - 23; n < 24; i++) {
     var pointNumber = url.searchParams.get('p');
     var kind = url.searchParams.get('k');
     console.log(pointNumber + "," + kind)
-
     console.log(hour)
+    getData(hour)
 
+    function getData(hour){
     // 各JSONファイルからデータを取得する
     $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + hour).slice(-2) + "0000.json", function(data) {
         // 特定の地点の温度データのみを抽出
+        console.log(hour)
         if(kind === "1"){
           var temperatureData = data[pointNumber].temp[0];
 
@@ -78,6 +80,8 @@ for (var i = currentHour - 23; n < 24; i++) {
           }
         }
     });
+    return
+    }
 }
 
 // グラフを描画する関数
