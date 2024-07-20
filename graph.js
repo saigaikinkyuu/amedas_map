@@ -40,6 +40,7 @@ for (var i = currentHour - 23; n < 24; i++) {
     var kind = url.searchParams.get('k');
     console.log(pointNumber + "," + kind)
 
+    console.log(hour)
     // ファイルパスを構築
     var filePath = "https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + hour).slice(-2) + "0000.json";
 
