@@ -41,11 +41,9 @@ for (var i = currentHour - 23; n < 24; i++) {
     console.log(pointNumber + "," + kind)
 
     console.log(hour)
-    // ファイルパスを構築
-    var filePath = "https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + hour).slice(-2) + "0000.json";
 
     // 各JSONファイルからデータを取得する
-    $.getJSON(filePath, function(data) {
+    $.getJSON("https://www.jma.go.jp/bosai/amedas/data/map/" + currentYear + currentMonth + ("0"+currentDay).slice(-2) + ("0" + hour).slice(-2) + "0000.json", function(data) {
         // 特定の地点の温度データのみを抽出
         if(kind === "1"){
           var temperatureData = data[pointNumber].temp[0];
