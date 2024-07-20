@@ -135,9 +135,9 @@ function drawChart(datasets,kind) {
 }
 function content(){
     $.getJSON("https://www.jma.go.jp/bosai/amedas/const/amedastable.json", function (data) {
-        var hash = window.location.hash;
-        var pointNumber = ("" + hash.substring(1)).slice(0,5);
-        var kind = ("" + hash.substring(1)).slice(-1);
+        const url = new URL(window.location.href);
+        var pointNumber = url.searchParams.get('p');
+        var kind = url.searchParams.get('k');
         var namekj = data[pointNumber].kjName
         var namekn = data[pointNumber].knName
         document.getElementById("name").innerHTML = namekj + "(" + namekn + ")";
