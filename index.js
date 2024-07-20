@@ -130,7 +130,7 @@ function mapDraw(num) {
                         marker.on('mouseout', function (e) {
                             this.closePopup();
                         });
-                        var url = "https://amedas.jkisyou.com/graph.html#" + key + "" + 1
+                        var url = "https://amedas.jkisyou.com/graph.html?p=" + key + "&&k=1"
                         // マーカーをクリックした際の処理
                         marker.on('click', (function(url) {
                             return function(e) {
@@ -190,7 +190,7 @@ function mapDraw(num) {
                         marker.on('mouseout', function (e) {
                             this.closePopup();
                         });
-                        var url = "https://amedas.jkisyou.com/graph.html#" + key + "" + 2
+                        var url = "https://amedas.jkisyou.com/graph.html?p=" + key + "&&k=2"
                         // マーカーをクリックした際の処理
                         marker.on('click', (function(url) {
                             return function(e) {
@@ -250,7 +250,7 @@ function mapDraw(num) {
                         marker.on('mouseout', function (e) {
                             this.closePopup();
                         });
-                        var url = "https://amedas.jkisyou.com/graph.html#" + key + "" + 3
+                        var url = "https://amedas.jkisyou.com/graph.html?p=" + key + "&&k=3"
                         // マーカーをクリックした際の処理
                         marker.on('click', (function(url) {
                             return function(e) {
