@@ -35,9 +35,9 @@ for (var i = currentHour - 23; n < 24; i++) {
     }
 
     // 地点名（特定の地点番号）をURLから取得
-    var hash = window.location.hash;
-    var pointNumber = ("" + hash.substring(1)).slice(0,5);
-    var kind = ("" + hash.substring(1)).slice(-1);
+    const url = new URL(window.location.href);
+    var pointNumber = url.searchParams.get('p');
+    var kind = url.searchParams.get('k');
     console.log(pointNumber + "," + kind)
 
     // ファイルパスを構築
