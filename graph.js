@@ -74,8 +74,17 @@ for (var i = currentHour - 23; n < 24; i++) {
           datasets.push(humidity);
 
           // 全てのデータを取得したら、グラフを描画する
-          if (datasets.length === 23) {
-              drawChart(datasets,kind);
+          if (datasets.length === 24) {
+              // 基準となる数
+              let threshold = new Date().getHours() + 1;
+              // 基準以上の要素を抽出してソート
+              let aboveThreshold = datasets.filter(item => item[0] >= threshold).sort((a, b) => a[0] - b[0]);
+              // 基準未満の要素を抽出してソート
+              let belowThreshold = datasets.filter(item => item[0] < threshold).sort((a, b) => a[0] - b[0]);
+              // ソート済み配列を結合
+              let sortedArray = aboveThreshold.concat(belowThreshold);
+              console.log(sortedArray)
+              drawChart(sortedArray,kind);
           }
         }else  if(kind === "3"){
           var precipitation = data[pointNumber].precipitation1h[0];
@@ -84,8 +93,17 @@ for (var i = currentHour - 23; n < 24; i++) {
           datasets.push(precipitation);
 
           // 全てのデータを取得したら、グラフを描画する
-          if (datasets.length === 23) {
-              drawChart(datasets,kind);
+          if (datasets.length === 24) {
+              // 基準となる数
+              let threshold = new Date().getHours() + 1;
+              // 基準以上の要素を抽出してソート
+              let aboveThreshold = datasets.filter(item => item[0] >= threshold).sort((a, b) => a[0] - b[0]);
+              // 基準未満の要素を抽出してソート
+              let belowThreshold = datasets.filter(item => item[0] < threshold).sort((a, b) => a[0] - b[0]);
+              // ソート済み配列を結合
+              let sortedArray = aboveThreshold.concat(belowThreshold);
+              console.log(sortedArray)
+              drawChart(sortedArray,kind);
           }
         }
     });
