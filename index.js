@@ -80,7 +80,7 @@ function mapDraw(num) {
                         return dd;
                     }
                     var markerData = datas[key];
-                    markerData.url = 'https://amedas.jkisyou.com/graph.html#' + key;
+                    markerData.url = "https://amedas.jkisyou.com/graph.html?p=" + key + "&&k=1";
 
                     var latitude = dmsToDd(data[key].lat[0], (data[key].lat[1] + "0").slice(0, 2), (data[key].lat[1] + "0").slice(2), "N");
                     var longitude = dmsToDd(data[key].lon[0], (data[key].lon[1] + "0").slice(0, 2), (data[key].lon[1] + "0").slice(2), "E");
