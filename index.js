@@ -80,7 +80,7 @@ function mapDraw(num) {
                         return dd;
                     }
                     var markerData = datas[key];
-                    markerData.url = "https://amedas.jkisyou.com/graph.html?p=" + key + "&&k=1";
+                    markerData.url = "./graph.html?p=" + key + "&&k=1";
 
                     var latitude = dmsToDd(data[key].lat[0], (data[key].lat[1] + "0").slice(0, 2), (data[key].lat[1] + "0").slice(2), "N");
                     var longitude = dmsToDd(data[key].lon[0], (data[key].lon[1] + "0").slice(0, 2), (data[key].lon[1] + "0").slice(2), "E");
@@ -190,7 +190,7 @@ function mapDraw(num) {
                         marker.on('mouseout', function (e) {
                             this.closePopup();
                         });
-                        var url = "https://amedas.jkisyou.com/graph.html?p=" + key + "&&k=2"
+                        var url = "./graph.html?p=" + key + "&&k=2"
                         // マーカーをクリックした際の処理
                         marker.on('click', (function(url) {
                             return function(e) {
@@ -305,7 +305,7 @@ function mapDraw(num) {
                         marker.on('mouseout', function (e) {
                             this.closePopup();
                         });
-                        var url = "https://amedas.jkisyou.com/graph.html#" + key + "" + 1
+                        var url = "./graph.html#" + key + "" + 1
                         // マーカーをクリックした際の処理
                         marker.on('click', (function(url) {
                             return function(e) {
