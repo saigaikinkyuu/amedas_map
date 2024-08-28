@@ -250,7 +250,7 @@ function mapDraw(num) {
                         marker.on('mouseout', function (e) {
                             this.closePopup();
                         });
-                        var url = "https://amedas.jkisyou.com/graph.html?p=" + key + "&&k=3"
+                        var url = "./graph.html?p=" + key + "&&k=3"
                         // マーカーをクリックした際の処理
                         marker.on('click', (function(url) {
                             return function(e) {
